@@ -23,6 +23,4 @@
          The default is false. -->
     <bool name="allow_emergency_numbers_in_call_log">true</bool>
 
-    <!-- Flag indicating if the tty is enabled -->
-    <bool name="tty_enabled">true</bool>
 </resources>
