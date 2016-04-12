@@ -1,0 +1,50 @@
+From b9b6b4b888fbf76a28b15041af1cce577758f1bf Mon Sep 17 00:00:00 2001
+From: Balvinder Singh <bpsingh@codeaurora.org>
+Date: Tue, 12 Apr 2016 19:49:25 +0530
+Subject: [PATCH 13/18] Bluetooth: Remove unused services for QC based
+ profiles.
+
+These profiles are not needed now because they either
+came from other sources or are depricated now
+
+Remove the sapd from QC since the same support came from AOSP
+
+CRs-Fixed: 1089788
+Change-Id: I4f269577e80435e79097917e489551e1543ef000
+---
+ rootdir/etc/init.qcom.rc | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 04a6c98..528195c 100755
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -398,12 +398,6 @@ on property:init.svc.wpa_supplicant=stopped
+ on property:bluetooth.isEnabled=true
+     write /sys/class/bluetooth/hci0/idle_timeout 7000
+ 
+-on property:bluetooth.sap.status=running
+-    start bt-sap
+-
+-on property:bluetooth.sap.status=stopped
+-    stop bt-sap
+-
+ on property:bluetooth.dun.status=running
+     start bt-dun
+ 
+@@ -474,13 +468,6 @@ service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
+     disabled
+     oneshot
+ 
+-service bt-sap /system/bin/sapd 15
+-    user bluetooth
+-    group bluetooth net_bt_admin
+-    class late_start
+-    disabled
+-    oneshot
+-
+ service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
+     class late_start
+     user root
+-- 
+2.7.4
