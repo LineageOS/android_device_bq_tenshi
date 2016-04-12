@@ -481,12 +481,6 @@ on property:init.svc.wpa_supplicant=stopped
 on property:bluetooth.isEnabled=true
     write /sys/class/bluetooth/hci0/idle_timeout 7000
 
-on property:bluetooth.sap.status=running
-    start bt-sap
-
-on property:bluetooth.sap.status=stopped
-    stop bt-sap
-
 on property:bluetooth.dun.status=running
     start bt-dun
 
@@ -539,11 +533,6 @@ service config_bt_addr /system/bin/btnvtool -O
     group bluetooth radio
     oneshot
 
-service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
-    class core
-    user root
-    oneshot
-
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
@@ -561,13 +550,6 @@ service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
     class late_start
     user bluetooth
     group bluetooth net_bt_admin inet
-    disabled
-    oneshot
-
-service bt-sap /system/bin/sapd 15
-    user bluetooth
-    group bluetooth net_bt_admin
-    class late_start
     disabled
     oneshot
 
