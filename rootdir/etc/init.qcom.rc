@@ -460,7 +460,7 @@ service rmt_storage /system/bin/rmt_storage
     user root
 
 service tftp_server /system/bin/tftp_server
-   class main
+   class core
    user root
 
 service config_bt_addr /system/bin/btnvtool -O
