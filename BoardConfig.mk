@@ -142,6 +142,9 @@ TARGET_PROVIDES_KEYMASTER := true
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Media Extensions
+TARGET_USES_MEDIA_EXTENSIONS := true
+
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
 
