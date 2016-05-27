@@ -1,0 +1,5 @@
+# Fingerprint
+/sys/devices/soc/75b7000\.spi/spi_master/spi8/spi8\.1(/.*)?         u:object_r:sysfs_devices_fingerprint:s0
+/sys/devices/soc/78b7000\.i2c/i2c-3/3-005f(/.*)?                    u:object_r:sysfs_devices_fingerprint:s0
+/data/fpc_images(/.*)?                                              u:object_r:fingerprint_data_file:s0
+/dev/socket/fpce(/.*)?                                              u:object_r:fingerprint_socket:s0
