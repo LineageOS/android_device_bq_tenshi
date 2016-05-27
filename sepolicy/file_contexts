@@ -1,0 +1,2 @@
+# Fingerprint
+/sys/devices/soc/75b7000\.spi/spi_master/spi8/spi8\.1(/.*)?         u:object_r:sysfs_devices_fingerprint:s0
