@@ -121,6 +121,9 @@ media.aac_51_output_enabled=true
 # system prop for UBWC
 video.disable.ubwc=1
 
+# system prop to disable split mode
+vidc.disable.split.mode=1
+
 #property to enable narrow search range for video encoding
 vidc.enc.narrow.searchrange=1
 
