@@ -48,6 +48,9 @@ on init
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
+on post-fs
+    chmod 0755 /sys/kernel/debug/tracing
+
 # msm specific files that need to be created on /data
 on post-fs-data
     symlink /sdcard /storage/sdcard0
