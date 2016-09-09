@@ -39,6 +39,7 @@ on fs
     write /proc/sys/vm/swappiness 100
 
     mkdir /persist/data 0700  system system
+    mkdir /persist/bms 0700 root system
     restorecon_recursive   /persist
 
 on post-fs-data
