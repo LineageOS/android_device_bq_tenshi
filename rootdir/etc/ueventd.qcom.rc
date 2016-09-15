@@ -48,8 +48,6 @@
 /dev/rmnet_ctrl           0660   usb        usb
 /dev/dpl_ctrl             0660   usb        usb
 
-/dev/block/bootdevice/by-name/frp 0600 system system
-
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
 
@@ -262,3 +260,5 @@
 
 # Add device block for FRP
 /dev/block/platform/soc/7824900.sdhci/by-name/config    0600   system     system
+/dev/block/platform/soc/7464900.sdhci/by-name/frp       0600   system     system
+/dev/block/platform/soc/624000.ufshc/by-name/frp        0600   system     system
