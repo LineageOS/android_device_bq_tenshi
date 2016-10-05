@@ -73,6 +73,7 @@ voice.voip.conc.disabled=true
 persist.speaker.prot.enable=false
 
 # Bluetooth
+qcom.bluetooth.soc=smd
 bluetooth.hfp.client=1
 
 # Display
