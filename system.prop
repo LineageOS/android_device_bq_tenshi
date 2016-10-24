@@ -45,8 +45,8 @@ audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
 #Enable audio track offload by default
 audio.offload.track.enable=true
-#Default pcm audio sink buffer size in msec. This is used in calculating framecount
-media.stagefright.audio.sink=280
+#QC property used when calculating client heap size in audio flinger
+audio.heap.size.multiplier=7
 #Enable multi channel aac through offload
 audio.offload.multiaac.enable=true
 #Disable Compress passthrough playback
