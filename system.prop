@@ -43,6 +43,8 @@ audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
 #Enable audio track offload by default
 audio.offload.track.enable=true
+#QC property used when calculating client heap size in audio flinger
+audio.heap.size.multiplier=7
 #Enable offload audio video playback by default
 audio.offload.video=true
 #parser input buffer size(256kb) in byte stream mode
