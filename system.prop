@@ -50,6 +50,11 @@ ro.vendor.extension_library=libqti-perfd-client.so
 ro.sf.lcd_density=320
 ro.sf.hwrotation=180
 
+# GPS
+persist.gps.qc_nlp_in_use=1
+persist.loc.nlp_name=com.qualcomm.location
+ro.gps.agps_provider=1
+
 # set dpm enable NSRM
 persist.dpm.feature=7
 persist.sys.dpmd.nsrm=3
