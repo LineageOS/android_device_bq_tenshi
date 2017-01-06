@@ -33,10 +33,10 @@ PRODUCT_MANUFACTURER := BQ
 # Overlays (inherit after vendor/cm to ensure we override it)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_NAME := lineage_tenshi
+PRODUCT_NAME := cm_tenshi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE="tenshi" \
     PRODUCT_NAME="tenshi" \
-    BUILD_FINGERPRINT="bq/tenshi/tenshi:6.0.1/MMB29M/1473930211:user/release-keys" \
-    PRIVATE_BUILD_DESC="tenshi-user 6.0.1 MMB29M 1.1.0_20160915-1025 release-keys"
+    BUILD_FINGERPRINT="bq/tenshi/tenshi:6.0.1/MMB29M/1481895829:user/release-keys" \
+    PRIVATE_BUILD_DESC="tenshi-user 6.0.1 MMB29M 1.3.2_20161216-1400 release-keys"
