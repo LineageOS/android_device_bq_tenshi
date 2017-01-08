@@ -1,0 +1,16 @@
+
+# Camera
+persist.camera.HAL3.enabled=1
+
+
+#
+# system prop for opengles version
+#
+# 196609 is decimal for 0x30001 to report major/minor versions as 3/1
+ro.opengles.version=196609
+
+ro.sf.lcd_density=320
+
+# Factory Reset Protection
+ro.frp.pst=/dev/block/bootdevice/by-name/config
+
