@@ -52,9 +52,6 @@ write_makefiles "$MY_DIR"/proprietary-files-qc.txt
 
 printf '\n%s\n' "endif" >> "$PRODUCTMK"
 
-# Use msm8996 graphics binaries for now
-printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8996/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
-
 printf '\n%s\n' "endif" >> "$ANDROIDMK"
 # We are done!
 write_footers

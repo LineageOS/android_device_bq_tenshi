@@ -6,7 +6,7 @@ vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 
 # ADSP modules
-vendor/lib/rfsa/adsp/libadsp_fd_skel.so
+#vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
@@ -38,13 +38,13 @@ vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
 # Audio ACDB
-etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
-etc/acdbdata/MTP/MTP_General_cal.acdb
-etc/acdbdata/MTP/MTP_Global_cal.acdb
-etc/acdbdata/MTP/MTP_Handset_cal.acdb
-etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
-etc/acdbdata/MTP/MTP_Headset_cal.acdb
-etc/acdbdata/MTP/MTP_Speaker_cal.acdb
+etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
+etc/acdbdata/QRD/QRD_General_cal.acdb
+etc/acdbdata/QRD/QRD_Global_cal.acdb
+etc/acdbdata/QRD/QRD_Handset_cal.acdb
+etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
+etc/acdbdata/QRD/QRD_Headset_cal.acdb
+etc/acdbdata/QRD/QRD_Speaker_cal.acdb
 
 # Bluetooth
 bin/btnvtool
@@ -79,8 +79,6 @@ lib/hw/camera.msm8937.so
 lib/libmm-qcamera.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
-lib/libmorpho_memory_allocator.so
-lib/libmorpho_panorama.so
 lib/libqomx_core.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc_pipe.so
@@ -105,7 +103,6 @@ etc/firmware/cpp_firmware_v1_8_0.fw
 
 # Camera sensors
 
-
 # Charger
 bin/hvdcp_opti
 
@@ -127,10 +124,10 @@ vendor/lib/libdpmtcm.so
 
 # DRM
 bin/qseecomd
+vendor/bin/mdtpd
 vendor/bin/qseeproxydaemon
 vendor/lib/libcppf.so
-vendor/lib/liboemcrypto.so
-vendor/lib/libQSEEComAPI.so
+#vendor/lib/liboemcrypto.so
 vendor/lib/lib-sec-disp.so
 vendor/lib/libGPreqcancel.so
 vendor/lib/libGPreqcancel_svc.so
@@ -148,6 +145,13 @@ vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
 vendor/lib/libssd.so
 vendor/lib/libtzdrmgenprov.so
+
+
+# Firmware
+etc/firmware/DE.o.msm8937
+
+# FM
+bin/fm_qsoc_patches
 
 # Gatekeeper
 vendor/lib/hw/gatekeeper.msm8937.so
@@ -188,6 +192,49 @@ vendor/lib/libulp2.so
 vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_ulp_adaptor.so
 vendor/lib/libxt_native.so
+
+# Graphics
+vendor/lib/egl/eglsubAndroid.so
+vendor/lib/egl/eglSubDriverAndroid.so
+vendor/lib/egl/libEGL_adreno.so
+vendor/lib/egl/libESXEGL_adreno.so
+vendor/lib/egl/libESXGLESv1_CM_adreno.so
+vendor/lib/egl/libESXGLESv2_adreno.so
+vendor/lib/egl/libGLESv1_CM_adreno.so
+vendor/lib/egl/libGLESv2_adreno.so
+vendor/lib/egl/libRBEGL_adreno.so
+vendor/lib/egl/libRBGLESv1_CM_adreno.so
+vendor/lib/egl/libRBGLESv2_adreno.so
+vendor/lib/egl/libq3dtools_adreno.so
+vendor/lib/egl/libq3dtools_esx.so
+vendor/lib/egl/libQTapGLES.so
+vendor/lib/libadreno_utils.so
+vendor/lib/libbccQTI.so
+vendor/lib/libC2D2.so
+vendor/lib/libc2d30-a5xx.so
+vendor/lib/libc2d30_bltlib.so
+vendor/lib/libCB.so
+vendor/lib/libgsl.so
+vendor/lib/libllvm-glnext.so
+vendor/lib/libllvm-qcom.so
+vendor/lib/libmm-disp-apis.so
+vendor/lib/libmm-qdcm.so
+vendor/lib/libmmQSM.so
+vendor/lib/libOpenCL.so
+vendor/lib/librs_adreno.so
+vendor/lib/librs_adreno_sha1.so
+vendor/lib/libRSDriver_adreno.so
+vendor/lib/libscale.so
+vendor/lib/libsc-a3xx.so
+vendor/lib/libsd_sdk_display.so
+vendor/lib/libsdm-disp-apis.so
+vendor/lib/libmm-dspp-utils.so
+vendor/lib/libmm-hdcpmgr.so
+vendor/lib/libmm-qdcm-diag.so
+vendor/lib/libscalar.so
+vendor/lib/libsdm-color.so
+vendor/lib/libsdm-diag.so
+vendor/lib/libsdmextension.so
 
 # Graphics firmware
 etc/firmware/a530_gpmu.fw2
@@ -260,7 +307,6 @@ framework/com.qti.snapdragon.sdk.display.jar
 -vendor/app/colorservice/colorservice.apk
 vendor/bin/mm-pp-dpps
 vendor/lib/libdisp-aba.so
-vendor/lib64/libdisp-aba.so
 
 # QMI
 bin/irsc_util
@@ -297,15 +343,12 @@ bin/qmuxd
 bin/radish
 bin/rmt_storage
 bin/tftp_server
-etc/data/dsi_config.xml
-etc/data/netmgr_config.xml
-etc/data/qmi_config.xml
 etc/permissions/embms.xml
-etc/permissions/qcnvitems.xml
+#etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 framework/embmslibrary.jar
--framework/qcnvitems.jar
+# -framework/qcnvitems.jar
 -framework/qcrilhook.jar
 framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
@@ -313,14 +356,14 @@ framework/QtiTelephonyServicelibrary.jar
 vendor/bin/qti
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
-vendor/lib64/libconfigdb.so
-vendor/lib64/liblqe.so
-vendor/lib64/libmdmdetect.so
-vendor/lib64/libnetmgr.so
-vendor/lib64/libril-qc-qmi-1.so
-vendor/lib64/libril-qc-radioconfig.so
-vendor/lib64/libril-qcril-hook-oem.so
-vendor/lib64/libsystem_health_mon.so
+vendor/lib/libconfigdb.so
+vendor/lib/liblqe.so
+vendor/lib/libmdmdetect.so
+vendor/lib/libnetmgr.so
+vendor/lib/libril-qc-qmi-1.so
+vendor/lib/libril-qc-radioconfig.so
+vendor/lib/libril-qcril-hook-oem.so
+vendor/lib/libsystem_health_mon.so
 vendor/qcril.db
 
 # Radio - IMS
@@ -330,7 +373,6 @@ bin/imsdatadaemon
 bin/imsqmidaemon
 etc/permissions/imscm.xml
 framework/imscmlibrary.jar
--vendor/app/ims/ims.apk
 -vendor/app/imssettings/imssettings.apk
 
 # Sensors
