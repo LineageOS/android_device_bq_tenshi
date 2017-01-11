@@ -24,6 +24,7 @@ $(call inherit-product, device/bq/tenshi/device.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
+BOARD_VENDOR := bq
 PRODUCT_DEVICE := tenshi
 PRODUCT_NAME := full_tenshi
 PRODUCT_BRAND := bq

@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-BOARD_VENDOR := bq
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := Aquaris_U_Plus,tenshi
 
