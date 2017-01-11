@@ -96,10 +96,8 @@ PRODUCT_PACKAGES += \
     init.qcom.modem_links.sh \
     init.qcom.usb.rc \
     init.qcom.wifi.sh \
-    init.qti.ims.sh \
     init.target.rc \
     ueventd.qcom.rc
-
 
 # IRSC
 PRODUCT_COPY_FILES += \

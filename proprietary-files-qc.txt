@@ -366,15 +366,6 @@ vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/libsystem_health_mon.so
 vendor/qcril.db
 
-# Radio - IMS
-bin/ims_rtp_daemon
-bin/imscmservice
-bin/imsdatadaemon
-bin/imsqmidaemon
-etc/permissions/imscm.xml
-framework/imscmlibrary.jar
--vendor/app/imssettings/imssettings.apk
-
 # Sensors
 bin/sensors.qcom
 etc/sensors/hals.conf
