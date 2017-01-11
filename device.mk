@@ -96,6 +96,7 @@ PRODUCT_PACKAGES += \
     init.qcom.modem_links.sh \
     init.qcom.usb.rc \
     init.qcom.wifi.sh \
+    loggy.sh	   \
     init.target.rc \
     ueventd.qcom.rc
 
