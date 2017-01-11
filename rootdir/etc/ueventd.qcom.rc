@@ -48,6 +48,8 @@
 /dev/rmnet_ctrl           0660   usb        usb
 /dev/dpl_ctrl             0660   usb        usb
 
+/dev/block/bootdevice/by-name/frp 0600 system system
+
 #permissions for CSVT
 /dev/smd11                0660   radio      radio
 
@@ -115,7 +117,7 @@
 /dev/jpeg2                0660   system     camera
 /dev/jpeg3                0660   system     camera
 /dev/adsprpc-smd          0664   system     system
-/dev/system_health_monitor 0644  radio      system
+/dev/system_health_monitor 0640  radio      system
 /dev/mdss_rotator         0664   system     system
 # wlan
 /dev/wcnss_wlan           0660   system     system
