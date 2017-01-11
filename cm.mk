@@ -26,19 +26,16 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Set those variables here to overwrite the inherited values.
 BOARD_VENDOR := bq
 PRODUCT_DEVICE := tenshi
-PRODUCT_NAME := full_tenshi
+PRODUCT_NAME := cm_tenshi
 PRODUCT_BRAND := bq
-PRODUCT_MODEL := "Aquaris U Plus"
+PRODUCT_MODEL := Aquaris U Plus
 PRODUCT_MANUFACTURER := bq
 
 # Overlays (inherit after vendor/cm to ensure we override it)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_NAME := cm_tenshi
 PRODUCT_GMS_CLIENTID_BASE := android-bq
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE="tenshi" \
-    PRODUCT_NAME="tenshi" \
     BUILD_FINGERPRINT="bq/tenshi/tenshi:6.0.1/MMB29M/1481895829:user/release-keys" \
     PRIVATE_BUILD_DESC="tenshi-user 6.0.1 MMB29M 1.3.2_20161216-1400 release-keys"
