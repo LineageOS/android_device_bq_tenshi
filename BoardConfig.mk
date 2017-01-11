@@ -16,7 +16,8 @@
 
 BOARD_VENDOR := bq
 
-TARGET_OTA_ASSERT_DEVICE := tenshi
+# Assert
+TARGET_OTA_ASSERT_DEVICE := Aquaris_U_Plus,tenshi
 
 LOCAL_PATH := device/bq/tenshi
 
