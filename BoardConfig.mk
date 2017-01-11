@@ -69,6 +69,16 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# Dex pre-opt to speed up initial boot
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
+
 # Display
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_C2D_COMPOSITION := true
