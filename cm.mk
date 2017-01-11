@@ -1,5 +1,5 @@
 #
-# Copyright 2016 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,12 +28,13 @@ PRODUCT_DEVICE := tenshi
 PRODUCT_NAME := full_tenshi
 PRODUCT_BRAND := bq
 PRODUCT_MODEL := "Aquaris U Plus"
-PRODUCT_MANUFACTURER := BQ
+PRODUCT_MANUFACTURER := bq
 
 # Overlays (inherit after vendor/cm to ensure we override it)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_NAME := cm_tenshi
+PRODUCT_GMS_CLIENTID_BASE := android-bq
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_DEVICE="tenshi" \
