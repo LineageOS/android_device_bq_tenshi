@@ -117,7 +117,7 @@
 /dev/jpeg2                0660   system     camera
 /dev/jpeg3                0660   system     camera
 /dev/adsprpc-smd          0664   system     system
-/dev/system_health_monitor 0640  radio      system
+/dev/system_health_monitor 0644  radio      system
 /dev/mdss_rotator         0664   system     system
 # wlan
 /dev/wcnss_wlan           0660   system     system
