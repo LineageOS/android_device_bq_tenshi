@@ -33,7 +33,19 @@ else
     platformid=`cat /sys/devices/system/soc/soc0/id`
 fi
 
+start_sensors()
+{
+    if [ -c /dev/msm_dsps -o -c /dev/sensors ]; then
+        chmod -h 775 /persist/sensors
+        chmod -h 664 /persist/sensors/sensors_settings
+        chown -h system.root /persist/sensors/sensors_settings
 
+        mkdir -p /data/misc/sensors
+        chmod -h 775 /data/misc/sensors
+
+        start sensors
+    fi
+}
 
 start_copying_prebuilt_qcril_db()
 {
@@ -88,6 +100,7 @@ esac
 # Copy qcril.db if needed for RIL
 #
 start_copying_prebuilt_qcril_db
+start_sensors
 start msm_irqbalance
 echo 1 > /data/misc/radio/db_check_done
 
