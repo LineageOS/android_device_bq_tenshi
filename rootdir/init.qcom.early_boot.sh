@@ -48,10 +48,6 @@ fi
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
-setprop ro.sf.lcd_density 320
-setprop ro.opengles.version 196609 # for tenshi
-# setprop ro.opengles.version 196608 - for Chaozulite
-
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine

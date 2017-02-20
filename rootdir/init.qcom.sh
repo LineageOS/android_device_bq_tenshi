@@ -27,11 +27,6 @@
 #
 chown -h system:system /sys/devices/soc/qpnp-smbcharger-*/battery_max_current
 target=`getprop ro.board.platform`
-if [ -f /sys/devices/soc0/soc_id ]; then
-    platformid=`cat /sys/devices/soc0/soc_id`
-else
-    platformid=`cat /sys/devices/system/soc/soc0/id`
-fi
 
 start_sensors()
 {
@@ -91,34 +86,6 @@ esac
 
 echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 
-case "$target" in
-    "msm8937")
-        if [ -f /sys/devices/soc0/soc_id ]; then
-            soc_id=`cat /sys/devices/soc0/soc_id`
-        else
-            soc_id=`cat /sys/devices/system/soc/soc0/id`
-        fi
-
-        if [ -f /sys/devices/soc0/hw_platform ]; then
-             hw_platform=`cat /sys/devices/soc0/hw_platform`
-        else
-             hw_platform=`cat /sys/devices/system/soc/soc0/hw_platform`
-        fi
-        case "$soc_id" in
-             "294" | "295" | "303" | "307" | "308" | "309" | "313")
-                  case "$hw_platform" in
-                       "Surf")
-                                    setprop qemu.hw.mainkeys 0
-                                    ;;
-                       "MTP")
-                                    setprop qemu.hw.mainkeys 0
-                                    ;;
-                       "RCM")
-                                    setprop qemu.hw.mainkeys 0
-                                    ;;
-                  esac
-                  ;;
-       esac
     ;;
 esac
 
