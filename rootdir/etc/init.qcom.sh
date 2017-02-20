@@ -55,15 +55,41 @@ start_copying_prebuilt_qcril_db()
     fi
 }
 
+#
+# start ril-daemon only for targets on which radio is present
+#
 baseband=`getprop ro.baseband`
-echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
+datamode=`getprop persist.data.mode`
 
 case "$baseband" in
-        "svlte2a")
-        start bridgemgrd
-        ;;
+    "msm" | "unknown")
+    start qmuxd
+    start ipacm-diag
+    start ipacm
+
+    multisim=`getprop persist.radio.multisim.config`
+
+    if [ "$multisim" = "dsds" ] || [ "$multisim" = "dsda" ]; then
+        start ril-daemon2
+    fi
+
+    case "$datamode" in
+        "tethered")
+            start qti
+            start port-bridge
+            ;;
+        "concurrent")
+            start qti
+            start netmgrd
+            start port-bridge
+            ;;
+        *)
+            start netmgrd
+            ;;
+    esac
 esac
 
+echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 
 case "$target" in
     "msm8937")
