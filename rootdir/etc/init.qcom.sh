@@ -34,22 +34,6 @@ else
 fi
 
 
-start_msm_irqbalance_8939()
-{
-	if [ -f /system/bin/msm_irqbalance ]; then
-		case "$platformid" in
-		    "239" | "293" | "294" | "295" | "304" | "313")
-			start msm_irqbalance;;
-		esac
-	fi
-}
-
-start_msm_irqbalance()
-{
-	if [ -f /system/bin/msm_irqbalance ]; then
-		start msm_irqbalance
-	fi
-}
 
 start_copying_prebuilt_qcril_db()
 {
@@ -125,7 +109,6 @@ case "$target" in
         esac
         ;;
     "msm8937")
-        start_msm_irqbalance_8939
         if [ -f /sys/devices/soc0/soc_id ]; then
             soc_id=`cat /sys/devices/soc0/soc_id`
         else
@@ -188,6 +171,7 @@ esac
 # Copy qcril.db if needed for RIL
 #
 start_copying_prebuilt_qcril_db
+start msm_irqbalance
 echo 1 > /data/misc/radio/db_check_done
 
 #
