@@ -94,7 +94,6 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
-    init.qcom.modem_links.sh \
     init.qcom.usb.rc \
     init.qcom.wifi.sh \
     loggy.sh	   \
