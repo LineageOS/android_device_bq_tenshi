@@ -3,6 +3,9 @@
 persist.camera.HAL3.enabled=1
 
 
+ro.telephony.call_ring.multiple=false
+wifi.interface=wlan0
+
 #
 # system prop for opengles version
 #
