@@ -86,9 +86,6 @@ esac
 
 echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 
-    ;;
-esac
-
 #
 # Copy qcril.db if needed for RIL
 #
