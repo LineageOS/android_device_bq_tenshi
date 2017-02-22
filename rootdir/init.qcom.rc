@@ -106,6 +106,8 @@ on post-fs-data
 
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
+    mkdir /data/fpc_images 0770 system system
+    chmod 0770 /data/fpc_images
 
     #Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
