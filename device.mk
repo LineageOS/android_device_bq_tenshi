@@ -86,7 +86,6 @@ PRODUCT_PACKAGES += \
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.bq.rc \
     init.class_main.sh \
     init.qcom.bt.sh \
     init.qcom.early_boot.sh \
