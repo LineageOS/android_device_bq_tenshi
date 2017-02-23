@@ -13,6 +13,7 @@ wifi.interface=wlan0
 ro.opengles.version=196609
 
 ro.sf.lcd_density=320
+ro.sf.hwrotation=180
 
 # Factory Reset Protection
 ro.frp.pst=/dev/block/bootdevice/by-name/config
