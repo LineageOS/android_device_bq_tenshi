@@ -878,13 +878,6 @@ service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     disabled
     oneshot
 
-service qti-testscripts /system/bin/sh /system/etc/init.qcom.testscripts.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-    seclabel u:r:qti-testscripts:s0
-
 service wifi-crda /system/bin/sh /system/etc/init.crda.sh
    class late_start
    user root
@@ -893,7 +886,6 @@ service wifi-crda /system/bin/sh /system/etc/init.crda.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-    start qti-testscripts
 
 service atfwd /system/bin/ATFWD-daemon
     class late_start
