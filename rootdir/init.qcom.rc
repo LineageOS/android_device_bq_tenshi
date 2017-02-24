@@ -1127,12 +1127,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
     socket thermal-recv-passive-client stream 0666 system system
     group root
 
-# Seemp health service
-service seemp_healthd /system/vendor/bin/seemp_healthd
-    class late_start
-    user system
-    group system
-
 service time_daemon /system/bin/time_daemon
     class late_start
     user root
