@@ -14,7 +14,7 @@
 
 LOCAL_PATH:= $(call my-dir)
 
-ifneq ($(filter gohan,$(TARGET_DEVICE)),)
+ifneq ($(filter tenshi,$(TARGET_DEVICE)),)
 
 # HAL module implemenation stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
