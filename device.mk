@@ -143,7 +143,8 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     libcnefeatureconfig \
-    librmnetctl
+    librmnetctl \
+    libxml2
 
 # Sensors
 PRODUCT_PACKAGES += \
