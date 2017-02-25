@@ -906,12 +906,6 @@ on property:sys.usb_uicc.enabled=1
 on property:sys.usb_uicc.enabled=0
     start usb_uicc_enable
 
-service profiler_daemon /system/bin/profiler_daemon
-    class late_start
-    user root
-    group root
-    disabled
-
 service hcidump /system/bin/sh /system/etc/hcidump.sh
     user bluetooth
     group bluetooth system net_bt_admin net_admin
