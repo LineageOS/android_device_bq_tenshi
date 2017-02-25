@@ -867,11 +867,6 @@ service getinfo /system/bin/sh /init.get.project.info.sh
     disabled
     oneshot
 
-service sensor-sh /system/bin/sh /init.qcom.sensors.sh
-    class core
-    user root
-    oneshot
-
 service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     class late_start
     user root
