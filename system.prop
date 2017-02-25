@@ -13,6 +13,7 @@ rild.libargs=-d /dev/smd0
 ro.telephony.default_network=9
 telephony.lteOnCdmaDevice=1
 ro.telephony.call_ring.multiple=false
+persist.radio.multisim.config=dsds
 
 # system prop for opengles version
 #
