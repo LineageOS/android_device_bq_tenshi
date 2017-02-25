@@ -74,8 +74,6 @@ vendor/lib/libxml.so
 # Camera
 bin/mm-qcamera-app
 bin/mm-qcamera-daemon
-etc/camera/msm8937_camera.xml
-etc/camera/ov5675_d5v15b_chromatix.xml
 lib/hw/camera.msm8937.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
