@@ -66,10 +66,6 @@ service dtseagleservice /system/bin/dts_eagle_service
 on property:init.svc.dts_configurator=stopped
     start dtseagleservice
 
-service per_mgr /system/bin/pm-service
-    class core
-    user system
-    group system net_raw
 
 service per_proxy /system/bin/pm-proxy
     class core
