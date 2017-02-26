@@ -42,14 +42,6 @@ start_sensors()
     fi
 }
 
-start_copying_prebuilt_qcril_db()
-{
-    if [ -f /system/vendor/qcril.db -a ! -f /data/misc/radio/qcril.db ]; then
-        cp /system/vendor/qcril.db /data/misc/radio/qcril.db
-        chown -h radio.radio /data/misc/radio/qcril.db
-    fi
-}
-
 #
 # start ril-daemon only for targets on which radio is present
 #
@@ -84,15 +76,9 @@ case "$baseband" in
     esac
 esac
 
-echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 
-#
-# Copy qcril.db if needed for RIL
-#
-start_copying_prebuilt_qcril_db
 start_sensors
 start msm_irqbalance
-echo 1 > /data/misc/radio/db_check_done
 
 #
 # Make modem config folder and copy firmware config to that folder for RIL
