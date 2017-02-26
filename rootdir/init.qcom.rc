@@ -803,11 +803,6 @@ service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
     oneshot
     disabled
 
-service battery_monitor /system/bin/battery_monitor
-    user system
-    group system
-    disabled
-
 service ril-daemon2 /system/bin/rild -c 2
     class main
     socket rild2 stream 660 root radio
@@ -851,11 +846,6 @@ service ssr_diag /system/bin/ssr_diag
     class late_start
     user system
     group system
-    disabled
-
-service charger_monitor /system/bin/charger_monitor
-    user root
-    group root
     disabled
 
 service qbcharger /charger -m 1
