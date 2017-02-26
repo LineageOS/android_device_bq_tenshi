@@ -898,22 +898,6 @@ on property:sys.dbg.coresight.enable=1
 on property:sys.dbg.coresight.enable=0
     write /persist/coresight/enable 0
 
-# service for USERDEBUG
-service LKCore-dbg /system/vendor/bin/LKCore
-    class late_start
-    oneshot
-    disabled
-    user root
-    group root system log qcom_diag
-
-# service for USER
-service LKCore-rel /system/vendor/bin/LKCore
-    class late_start
-    oneshot
-    disabled
-    user system
-    group system log qcom_diag
-
 service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
     user system
