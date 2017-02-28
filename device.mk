@@ -85,6 +85,11 @@ PRODUCT_PACKAGES += \
     memtrack.msm8937 \
     liboverlay
 
+
+# Fingerprint
+PRODUCT_PACKAGES += \
+    fingerprintd
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
