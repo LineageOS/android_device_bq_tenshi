@@ -41,6 +41,9 @@ ro.sf.lcd_density=320
 ro.sf.hwrotation=180
 
 
+# property to enable fingerprint
+persist.qfp=false
+
 #system props for time-services
 persist.timed.enable=true
 
