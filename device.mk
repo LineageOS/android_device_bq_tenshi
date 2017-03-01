@@ -123,6 +123,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/msg2xxx.kl:system/usr/keylayout/msg2xxx.kl \
     $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msm8937
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
