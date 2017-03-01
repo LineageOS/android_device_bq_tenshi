@@ -40,6 +40,12 @@ ro.vendor.extension_library=libqti-perfd-client.so
 ro.sf.lcd_density=320
 ro.sf.hwrotation=180
 
+# set dpm enable NSRM
+persist.dpm.feature=7
+persist.sys.dpmd.nsrm=3
+
+# system props for the cne module
+persist.cne.feature=1
 
 # property to enable fingerprint
 persist.qfp=false
