@@ -37,5 +37,5 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_GMS_CLIENTID_BASE := android-bq
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="bq/tenshi/tenshi:6.0.1/MMB29M/1481895829:user/release-keys" \
-    PRIVATE_BUILD_DESC="tenshi-user 6.0.1 MMB29M 1.3.2_20161216-1400 release-keys"
+    BUILD_FINGERPRINT="bq/tenshi/tenshi:6.0.1/MMB29M/1487334495:user/release-keys" \
+    PRIVATE_BUILD_DESC="tenshi-user 6.0.1 MMB29M 1.5.0_20170217-1218 release-keys"
