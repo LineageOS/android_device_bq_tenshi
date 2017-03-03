@@ -93,7 +93,20 @@ $(FINGERPRINT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(GOODIXFP_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(FINGERPRINT_SYMLINKS)
+
+FPCTZAPP_IMAGES := \
+    fpctzapp.b00 fpctzapp.b01 fpctzapp.b02 fpctzapp.b03 fpctzapp.b04 fpctzapp.b05 \
+    fpctzapp.b06 fpctzapp.mdt
+
+FPCTZAPP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FPCTZAPP_IMAGES)))
+$(FPCTZAPP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "FPCTZAPP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	@$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(FPCTZAPP_SYMLINKS)
 
 ISDB_IMAGES := \
     isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.b04 isdbtmm.b05 \
