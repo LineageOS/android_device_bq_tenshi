@@ -1,0 +1,2 @@
+add_lunch_combo cm_tenshi-eng
+add_lunch_combo cm_tenshi-userdebug
