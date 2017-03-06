@@ -79,6 +79,9 @@ lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libmm-qcamera.so
 lib/libqomx_core.so
+lib/libarcsoft_beautyshot.so
+lib/libcam.beautyshot.so
+lib/libmpbase.so
 vendor/lib/libchromaflash.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
@@ -97,6 +100,7 @@ vendor/lib/libmmcamera_optizoom_lib.so
 vendor/lib/libmmcamera_pdaf.so
 vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_ppbase_module.so
+vendor/lib/libmmcamera_qtech_8856_eeprom.so
 vendor/lib/libmmcamera_qtech_gt24c64a_eeprom.so
 vendor/lib/libmmcamera_qtech_z5675ae_eeprom.so
 vendor/lib/libmmcamera_stillmore_lib.so

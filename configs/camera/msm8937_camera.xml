@@ -161,6 +161,8 @@ LensInfo : Information of the lens present in the module.
     <CameraId>0</CameraId>
     <SensorName>ov8856</SensorName>
     <FlashName>pmic</FlashName>
+    <ActuatorName>dw9714</ActuatorName>
+    <EepromName>qtech_8856</EepromName>
     <ChromatixName>ov8856_chromatix</ChromatixName>
     <ModesSupported>1</ModesSupported>
     <Position>BACK</Position>
