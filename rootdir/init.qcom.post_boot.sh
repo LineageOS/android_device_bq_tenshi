@@ -290,7 +290,6 @@ esac
         echo 128 > /sys/block/dm-1/queue/read_ahead_kb
         rm /data/system/perfd/default_values
         start perfd
-        start gamed
 
 
 # Let kernel know our image version/variant/crm_version
