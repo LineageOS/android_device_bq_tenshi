@@ -30,6 +30,10 @@
          capability can provide power savings when wifi needs to be always kept on. -->
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
+
+    <!-- IpReachability monitor enable/disable -->
+    <bool translatable="false" name="config_wifi_ipreachability_monitor">false</bool>
+
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
