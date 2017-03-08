@@ -33,6 +33,8 @@
          capability can provide power savings when wifi needs to be always kept on. -->
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
 
+    <!-- Boolean indicating whether Hotspot 2.0/Passpoint and ANQP queries is enabled -->
+    <bool translatable="false" name="config_wifi_hotspot2_enabled">true</bool>
 
     <!-- IpReachability monitor enable/disable -->
     <bool translatable="false" name="config_wifi_ipreachability_monitor">false</bool>
