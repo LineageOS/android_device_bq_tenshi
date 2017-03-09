@@ -100,6 +100,9 @@ PRODUCT_PACKAGES += \
     gps.msm8937 \
     gps.conf
 
+PRODUCT_BOOT_JARS += \
+    com.qti.location.sdk
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
