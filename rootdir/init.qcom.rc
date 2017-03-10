@@ -904,7 +904,6 @@ service fingerprintd /system/bin/fingerprintd
     socket fpce stream 0666 system system
     user  system
     group system sdcard_rw
-    disabled
 
 # Start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon

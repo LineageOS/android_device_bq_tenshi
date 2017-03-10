@@ -1,6 +1,3 @@
 # Fingerprint
-bin/fingerprintd
-bin/fpc_tac_test
 lib/hw/fingerprint.msm8937.so
 lib/lib_fpc_tac_shared.so
-lib/libcom_fingerprints_service.so
