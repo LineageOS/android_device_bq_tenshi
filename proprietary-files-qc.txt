@@ -517,6 +517,7 @@ bin/ssr_diag
 etc/thermal-engine.conf
 vendor/bin/thermal-engine
 vendor/lib/libthermalclient.so
+vendor/lib/libthermalioctl.so
 
 # Time services
 -app/TimeService/TimeService.apk
