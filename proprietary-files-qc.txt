@@ -94,6 +94,7 @@ vendor/lib/libmmcamera_dcrf_lib.so
 vendor/lib/libmmcamera_eeprom_util.so
 vendor/lib/libmmcamera_eztune_module.so
 vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_llvd.so
 vendor/lib/libmmcamera_optizoom_lib.so
