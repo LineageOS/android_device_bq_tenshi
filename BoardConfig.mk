@@ -202,6 +202,9 @@ USE_SENSOR_MULTI_HAL := true
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
+# Tap to wake
+TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/wakeup_gesture_enable"
+
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HAS_QCOM_WLAN_SDK          := true
