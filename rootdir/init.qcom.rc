@@ -491,11 +491,6 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service loggy /system/bin/sh  /loggy.sh
-    class main
-    user root
-    oneshot
-
 service cnd /system/bin/cnd
     class main
     socket cnd stream 660 root inet
