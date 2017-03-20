@@ -861,6 +861,11 @@ service mdtpd /system/vendor/bin/mdtpd
     user root
     group system radio drmrpc
 
+service time_daemon /system/bin/time_daemon
+    class main
+    user root
+    group root
+
 on property:vold.decrypt=trigger_restart_min_framework
     start time_daemon
 
