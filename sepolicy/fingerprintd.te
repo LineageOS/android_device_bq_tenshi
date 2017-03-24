@@ -1,6 +1,9 @@
 allow fingerprintd tee_device:chr_file { open read write ioctl };
 allow fingerprintd fingerprint_data_file:dir rw_dir_perms;
 allow fingerprintd fingerprint_data_file:file rw_file_perms;
+allow fingerprintd fingerprint_data_file:sock_file { unlink rw_dir_perms };
 allow fingerprintd fingerprint_socket:file rw_file_perms;
+allow fingerprintd firmware_file:file { read getattr open search };
+allow fingerprintd firmware_file:dir r_dir_perms;
 allow fingerprintd sysfs_devices_fingerprint:dir r_dir_perms;
 allow fingerprintd sysfs_devices_fingerprint:file { open read write };
