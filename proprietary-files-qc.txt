@@ -37,6 +37,14 @@ vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
 
+# TEMP
+system/lib/audio.a2dp.default.so
+audio_policy.default.so
+audio.primary.default.so
+audio.primary.msm8937.so
+audio.r_submix.default.so
+audio.usb.default.so
+
 # Audio ACDB
 etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
 etc/acdbdata/QRD/QRD_General_cal.acdb
