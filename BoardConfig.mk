@@ -37,7 +37,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8937
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 BOARD_KERNEL_PAGESIZE := 2048
@@ -85,7 +85,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # CNE
 BOARD_USES_QCNE := true
-TARGET_LDPRELOAD := libNimsWrap.so
 
 # Dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
@@ -103,6 +102,8 @@ TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
 TARGET_USES_OVERLAY := true
 USE_OPENGL_RENDERER := true
+VSYNC_EVENT_PHASE_OFFSET_NS := 1000000
+SF_VSYNC_EVENT_PHASE_OFFSET_NS := 1000000
 
 
 # Shader cache config options
