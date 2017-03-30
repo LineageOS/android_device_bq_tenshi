@@ -135,6 +135,9 @@ ro.opengles.version=196609
 persist.camera.is_type=1
 persist.camera.gyro.android=1
 media.camera.ts.monotonic=0
+vidc.debug.perf.mode=2
+vidc.enc.dcvs.extra-buff-count=2
+vidc.enc.disable.pq=true
 
 #
 # system props for the data modules
