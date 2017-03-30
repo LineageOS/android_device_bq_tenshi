@@ -27,9 +27,6 @@
 #
 #
 
-on post-fs
-    export LD_PRELOAD libNimsWrap.so
-
 service per_proxy /system/bin/pm-proxy
     class core
     user system
