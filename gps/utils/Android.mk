@@ -9,7 +9,8 @@ include $(CLEAR_VARS)
 LOCAL_SHARED_LIBRARIES := \
     libutils \
     libcutils \
-    liblog
+    liblog \
+    libloc_pla
 
 LOCAL_SRC_FILES += \
     loc_log.cpp \
@@ -37,7 +38,7 @@ LOCAL_LDFLAGS += -Wl,--export-dynamic
 
 ## Includes
 LOCAL_C_INCLUDES:= \
-    $(LOCAL_PATH)/platform_lib_abstractions
+    $(TARGET_OUT_HEADERS)/libloc_pla
 
 LOCAL_COPY_HEADERS_TO:= gps.utils/
 LOCAL_COPY_HEADERS:= \
@@ -53,9 +54,6 @@ LOCAL_COPY_HEADERS:= \
    loc_target.h \
    loc_timer.h \
    LocSharedLock.h \
-   platform_lib_abstractions/platform_lib_includes.h \
-   platform_lib_abstractions/platform_lib_time.h \
-   platform_lib_abstractions/platform_lib_macros.h \
    loc_misc_utils.h
 
 LOCAL_MODULE := libgps.utils
@@ -65,4 +63,6 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
+
+include $(addsuffix /Android.mk, $(addprefix $(LOCAL_PATH)/, platform_lib_abstractions))
 endif # not BUILD_TINY_ANDROID
