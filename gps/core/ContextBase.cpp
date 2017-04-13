@@ -35,7 +35,7 @@
 #include <ContextBase.h>
 #include <msg_q.h>
 #include <loc_target.h>
-#include <log_util.h>
+#include <platform_lib_includes.h>
 #include <loc_log.h>
 
 namespace loc_core {
@@ -73,6 +73,10 @@ LBSProxyBase* ContextBase::getLBSProxy(const char* libName)
             proxy = (*getter)();
         }
     }
+    else
+    {
+        LOC_LOGW("%s:%d]: FAILED TO LOAD libname: %s\n", __func__, __LINE__, libName);
+    }
     if (NULL == proxy) {
         proxy = new LBSProxyBase();
     }
@@ -84,8 +88,6 @@ LocApiBase* ContextBase::createLocApi(LOC_API_ADAPTER_EVENT_MASK_T exMask)
 {
     LocApiBase* locApi = NULL;
 
-    // first if can not be MPQ
-    if (TARGET_MPQ != loc_get_target()) {
         if (NULL == (locApi = mLBSProxy->getLocApi(mMsgTask, exMask, this))) {
             void *handle = NULL;
             //try to see if LocApiV02 is present
@@ -94,7 +96,7 @@ LocApiBase* ContextBase::createLocApi(LOC_API_ADAPTER_EVENT_MASK_T exMask)
                 getLocApi_t* getter = (getLocApi_t*)dlsym(handle, "getLocApi");
                 if(getter != NULL) {
                     LOC_LOGD("%s:%d]: getter is not NULL for LocApiV02", __func__, __LINE__);
-                    locApi = (*getter)(mMsgTask, exMask, this);
+                     locApi = (*getter)(mMsgTask, exMask, this);
                 }
             }
             // only RPC is the option now
@@ -107,7 +109,6 @@ LocApiBase* ContextBase::createLocApi(LOC_API_ADAPTER_EVENT_MASK_T exMask)
                     if (NULL != getter) {
                         LOC_LOGD("%s:%d]: getter is not NULL in RPC", __func__, __LINE__);
                         locApi = (*getter)(mMsgTask, exMask, this);
-                    }
                 }
             }
         }
