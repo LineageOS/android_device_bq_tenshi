@@ -6,11 +6,11 @@ vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 
 # ADSP modules
-#vendor/lib/rfsa/adsp/libadsp_fd_skel.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvadsp_skel.so
+vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so
 vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_skel.so
 vendor/lib/rfsa/adsp/libobjectMattingApp_skel.so
 vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so
@@ -30,6 +30,7 @@ vendor/lib/libaudcal.so
 vendor/lib/libaudioalsa.so
 vendor/lib/libaudiodevarb.so
 vendor/lib/libdrc.so
+vendor/lib/libhwdaphal.so
 vendor/lib/libqct_resampler.so
 vendor/lib/libsurround_3mic_proc.so
 vendor/lib/libswvdec.so
@@ -62,10 +63,8 @@ framework/ConnectivityExt.jar
 framework/cneapiclient.jar
 framework/com.quicinc.cne.jar
 -priv-app/CNEService/CNEService.apk
-vendor/lib/libNimsWrap.so
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
-vendor/lib/libcneconn.so
 vendor/lib/libcneqmiutils.so
 vendor/lib/libvendorconn.so
 vendor/lib/libwqe.so
@@ -86,29 +85,37 @@ vendor/lib/libchromaflash.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegehw.so
-vendor/lib/libllvd_smore.so
-vendor/lib/libllvd_sw_tnr.so
+vendor/lib/libmmcamera_sw2d_lib.so
+vendor/lib/libmmcamera_cac3_lib.so
 vendor/lib/libmmcamera_chromaflash_lib.so
 vendor/lib/libmmcamera_dbg.so
 vendor/lib/libmmcamera_dcrf_lib.so
+vendor/lib/libmmcamera_dummyalgo.so
+vendor/lib/libmmcamera_eebinparse.so
 vendor/lib/libmmcamera_eeprom_util.so
 vendor/lib/libmmcamera_eztune_module.so
 vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_faceproc2.so
+vendor/lib/libmmcamera_facedetection_lib.so
 vendor/lib/libmmcamera_hdr_gb_lib.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_llvd.so
 vendor/lib/libmmcamera_optizoom_lib.so
+vendor/lib/libmmcamera_paaf_lib.so
 vendor/lib/libmmcamera_pdaf.so
 vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_ppbase_module.so
-vendor/lib/libmmcamera_qtech_8856_eeprom.so
-vendor/lib/libmmcamera_qtech_gt24c64a_eeprom.so
-vendor/lib/libmmcamera_qtech_z5675ae_eeprom.so
+vendor/lib/libmmcamera_ppeiscore.so
+vendor/lib/libmmcamera_imx258_mono_gt24c32_eeprom.so
+vendor/lib/libmmcamera_quadracfa.so
 vendor/lib/libmmcamera_stillmore_lib.so
-vendor/lib/libmmcamera_sw_tnr.so
+vendor/lib/libmmcamera_sw2d_lib.so
 vendor/lib/libmmcamera_thread_services.so
 vendor/lib/libmmcamera_tintless_algo.so
+vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_trueportrait_lib.so
+vendor/lib/libmmcamera_tuning_lookup.so
+vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_ubifocus_lib.so
 vendor/lib/libmmcamera_ov5675.so
 vendor/lib/libmmcamera_s5k3p3.so
@@ -121,6 +128,7 @@ vendor/lib/libmmcamera2_imglib_modules.so
 vendor/lib/libmmcamera2_is.so
 vendor/lib/libmmcamera2_isp_modules.so
 vendor/lib/libmmcamera2_mct.so
+vendor/lib/libmmcamera2_mct_shimlayer.so
 vendor/lib/libmmcamera2_pp_buf_mgr.so
 vendor/lib/libmmcamera2_pproc_modules.so
 vendor/lib/libmmcamera2_q3a_core.so
@@ -139,8 +147,8 @@ vendor/lib/liboptizoom.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libqomx_jpegenc.so
+vendor/lib/libremosaic_daemon.so
 vendor/lib/libseemore.so
-vendor/lib/libtm_interface.so
 vendor/lib/libtrueportrait.so
 vendor/lib/libts_detected_face_hal.so
 vendor/lib/libts_face_beautify_hal.so
@@ -196,6 +204,19 @@ vendor/lib/libchromatix_s5k3p3_cpp_preview.so
 vendor/lib/libchromatix_s5k3p3_zsl_video_dw9800.so
 vendor/lib/libchromatix_s5k3p3_hfr_120.so
 vendor/lib/libchromatix_s5k3p3_hfr_120_dw9800.so
+vendor/lib/libchromatix_s5k3p3sm_common.so
+vendor/lib/libchromatix_s5k3p3sm_cpp_liveshot.so
+vendor/lib/libchromatix_s5k3p3sm_cpp_preview.so
+vendor/lib/libchromatix_s5k3p3sm_cpp_snapshot.so
+vendor/lib/libchromatix_s5k3p3sm_cpp_video.so
+vendor/lib/libchromatix_s5k3p3sm_default_preview_3a.so
+vendor/lib/libchromatix_s5k3p3sm_default_video.so
+vendor/lib/libchromatix_s5k3p3sm_default_video_3a.so
+vendor/lib/libchromatix_s5k3p3sm_fullsize_preview_3a.so
+vendor/lib/libchromatix_s5k3p3sm_fullsize_video_3a.so
+vendor/lib/libchromatix_s5k3p3sm_postproc.so
+vendor/lib/libchromatix_s5k3p3sm_preview.so
+vendor/lib/libchromatix_s5k3p3sm_snapshot.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -306,15 +327,30 @@ etc/sap.conf
 etc/xtwifi.conf
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
+etc/permissions/izat.xt.srv.xml
 -framework/com.qti.location.sdk.jar
+framework/izat.xt.srv.jar
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
+lib/libloc_eng.so
+lib/libloc_core.so
+lib/libloc_pla.so
+lib/libloc_stub.so
+lib/libgnsspps.so
+lib/libgps.utils.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/bin/slim_daemon
 vendor/lib/hw/flp.default.so
 vendor/lib/libalarmservice_jni.so
+vendor/lib/libasn1cper.so
+vendor/lib/libasn1crt.so
+vendor/lib/libasn1crtx.so
 vendor/lib/libdataitems.so
+vendor/lib/libdrplugin_client.so
+vendor/lib/libDRPlugin.so
+vendor/lib/libevent_observer.so
 vendor/lib/libflp.so
+vendor/lib/libgdtap.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
@@ -330,6 +366,7 @@ vendor/lib/libxtwifi_ulp_adaptor.so
 vendor/lib/libxt_native.so
 
 # Graphics
+vendor/lib/hw/vulkan.msm8937.so
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
@@ -364,9 +401,7 @@ vendor/lib/libscale.so
 vendor/lib/libsc-a3xx.so
 vendor/lib/libsd_sdk_display.so
 vendor/lib/libsdm-disp-apis.so
-vendor/lib/libmm-dspp-utils.so
 vendor/lib/libmm-hdcpmgr.so
-vendor/lib/libmm-qdcm-diag.so
 vendor/lib/libscalar.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
@@ -401,7 +436,7 @@ vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
 vendor/lib/libFlacSwDec.so
 vendor/lib/libI420colorconvert.so
-vendor/lib/libMpeg4SwEncoder.so
+-vendor/lib/libMpeg4SwEncoder.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxAlacDec.so
 vendor/lib/libOmxAlacDecSw.so
@@ -426,10 +461,9 @@ vendor/lib/libQtiTether.so
 # Perf
 bin/iop
 bin/msm_irqbalance
-lib/libqti-iop.so
-lib/libqti_performance.so
 vendor/bin/perfd
-vendor/lib/libqc-opt.so
+vendor/lib/libqti_performance.so
+vendor/lib/libqti-iop.so
 vendor/lib/libqti-iop-client.so
 vendor/lib/libqti-perfd-client.so
 
@@ -448,7 +482,6 @@ vendor/lib/libdisp-aba.so
 # QMI
 bin/irsc_util
 etc/permissions/qti_permissions.xml
-etc/sec_config
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
@@ -477,7 +510,6 @@ vendor/lib/libvqzip.so
 -app/shutdownlistener/shutdownlistener.apk
 bin/ipacm-diag
 bin/netmgrd
-bin/qmuxd
 bin/radish
 bin/rmt_storage
 bin/tftp_server
