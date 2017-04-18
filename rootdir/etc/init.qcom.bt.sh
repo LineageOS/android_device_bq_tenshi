@@ -72,25 +72,6 @@ config_bt ()
   btsoc=`getprop qcom.bluetooth.soc`
 
   case $baseband in
-    "mdm" | "svlte2a" | "svlte1" | "csfb")
-        setprop ro.qualcomm.bluetooth.opp true
-        setprop ro.qualcomm.bluetooth.hfp true
-        setprop ro.qualcomm.bluetooth.hsp true
-        setprop ro.qualcomm.bluetooth.pbap true
-        setprop ro.qualcomm.bluetooth.ftp true
-        setprop ro.qualcomm.bluetooth.map true
-        setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.bluetooth.sap true
-        case $target in
-          "apq8084")
-              setprop ro.bluetooth.dun true
-              logi "Enabling BT-DUN for APQ8084"
-              ;;
-          *)
-              setprop ro.bluetooth.dun false
-              ;;
-        esac
-        ;;
     "msm")
         setprop ro.qualcomm.bluetooth.opp true
         setprop ro.qualcomm.bluetooth.hfp true
