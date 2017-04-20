@@ -6,4 +6,20 @@ It was released in October 2016.
 
 Copyright 2016 - The CyanogenMod Project.
 
+Basic   | Spec Sheet
+-------:|:-------------------------
+CPU     | Quad-core 1.4 GHz Cortex-A53 & Quad-core 1.1 GHz Cortex-A53
+Chipset | Qualcomm MSM8937 Snapdragon 430
+GPU     | Adreno 505
+Memory  | 2 / 3 GB RAM
+Shipped Android Version | 6.0.1
+Storage | 16/32 GB
+MicroSD | Up to 32GB
+Battery | Non-removable Li-Po 3100 mAh battery
+Display | 1280x720 pixels, 5.0 inches (~294 ppi pixel density)
+Camera  | Primary: 16 MP, f/2.0 (Samsung S5K3P3)
+Camera (front)	| Secondary: 8 MP, f/2.4, 1080p (Omnivision OV5675)
 
+Copyright (C) 2017 The LineageOS Project.
+
+![Aquaris U Plus](https://store.bq.com/media/catalog/product/cache/4/image/800x800/9df78eab33525d08d6e5fb8d27136e95/a/q/aquaris_uplus_galeria_antracita_800x800_2.jpg "BQ Aquaris U Plus")
