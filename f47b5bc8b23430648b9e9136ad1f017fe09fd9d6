@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_ada00af5",
+        "filename": "overlay/frameworks/base/core/res/res/values/config.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 15284
+      },
+      "writtenOn": "2017-05-03T19:48:15Z",
+      "side": 1,
+      "message": "https://review.lineageos.org/#/c/148357/",
+      "range": {
+        "startLine": 231,
+        "startChar": 62,
+        "endLine": 231,
+        "endChar": 65
+      },
+      "revId": "f47b5bc8b23430648b9e9136ad1f017fe09fd9d6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
