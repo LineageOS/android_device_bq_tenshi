@@ -132,7 +132,6 @@ persist.data.mode=concurrent
 ro.vendor.extension_library=libqti-perfd-client.so
 
 ro.sf.lcd_density=320
-ro.sf.hwrotation=180
 
 # GPS
 persist.gps.qc_nlp_in_use=1
