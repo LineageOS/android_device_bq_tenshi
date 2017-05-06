@@ -22,6 +22,30 @@
       "revId": "8efcef5d632ec3764cce9b2c4908577c9e2a5174",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_5081268e",
+        "filename": "device.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 6521
+      },
+      "writtenOn": "2017-05-06T03:46:23Z",
+      "side": 1,
+      "message": "I\u0027d rather do it in a different commit.",
+      "parentUuid": "1a486d77_50aa461a",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 4
+      },
+      "revId": "8efcef5d632ec3764cce9b2c4908577c9e2a5174",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
