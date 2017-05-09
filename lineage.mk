@@ -37,5 +37,5 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_GMS_CLIENTID_BASE := android-bq
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="bq/tenshi/tenshi:7.1.1/NMF26F/1490113276:user/release-keys" \
-    PRIVATE_BUILD_DESC="tenshi-user 7.1.1 NMF26F 2.0.0_20170321-1701 release-keys"
+    BUILD_FINGERPRINT="bq/tenshi/tenshi:7.1.1/NMF26F/1492687806:user/release-keys" \
+    PRIVATE_BUILD_DESC="tenshi-user 7.1.1 NMF26F 2.1.0_20170420-1318 release-keys"
