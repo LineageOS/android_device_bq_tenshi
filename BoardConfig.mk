@@ -114,6 +114,9 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+# CMHW
+BOARD_HARDWARE_CLASS := device/bq/tenshi/cmhw/src
+
 # CNE
 BOARD_USES_QCNE := true
 
