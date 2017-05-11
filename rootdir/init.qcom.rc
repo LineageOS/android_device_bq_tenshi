@@ -840,20 +840,6 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
 
-service diag_mdlog_start /system/bin/diag_mdlog
-    class late_start
-    user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-service diag_mdlog_stop /system/bin/diag_mdlog -k
-    class late_start
-    user shell
-    group system qcom_diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
 service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
     class core
     user root
