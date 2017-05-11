@@ -134,7 +134,6 @@ PRODUCT_PACKAGES += \
     init.qcom.syspart_fixup.sh \
     init.qcom.usb.rc \
     init.qcom.wifi.sh \
-    init.target.rc \
     ueventd.qcom.rc
 
 # IPA Manager
