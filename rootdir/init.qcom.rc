@@ -815,14 +815,6 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     user system
     group system
 
-# Add poweroffhandler
-service poweroffhandler /system/bin/poweroffhandler
-    class core
-    user media
-    group graphics audio
-    disabled
-    oneshot
-
 service fingerprintd /system/bin/fingerprintd
     class late_start
     socket fpce stream 0666 system system
