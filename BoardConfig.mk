@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
+LOCAL_PATH := device/bq/tenshi
+
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := Aquaris_U_Plus,tenshi
-
-LOCAL_PATH := device/bq/tenshi
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8937
