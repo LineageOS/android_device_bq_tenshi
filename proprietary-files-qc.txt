@@ -6,6 +6,7 @@ vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 
 # ADSP modules
+vendor/lib/libmdsprpc.so
 vendor/lib/rfsa/adsp/libapps_mem_heap.so
 vendor/lib/rfsa/adsp/libdspCV_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
@@ -308,6 +309,7 @@ vendor/lib/libsecureui.so
 vendor/lib/libsecureui_svcsock.so
 vendor/lib/libssd.so
 vendor/lib/libtzdrmgenprov.so
+vendor/lib/mediadrm/libwvdrmengine.so
 
 
 # FM
@@ -539,6 +541,31 @@ vendor/lib/libsettings.so
 vendor/lib/libsystem_health_mon.so
 vendor/qcril.db
 
+
+# SCVE
+vendor/lib/libscveBlobDescriptor.so
+vendor/lib/libscveBlobDescriptor_stub.so
+vendor/lib/libscveCleverCapture.so
+vendor/lib/libscveCleverCapture_stub.so
+vendor/lib/libscveCommon.so
+vendor/lib/libscveCommon_stub.so
+vendor/lib/libscveFaceRecognition.so
+vendor/lib/libscveImageCloning.so
+vendor/lib/libscveImageCorrection.so
+vendor/lib/libscveImageRemoval.so
+vendor/lib/libscveMotionVector.so
+vendor/lib/libscveObjectMatting.so
+vendor/lib/libscveObjectMatting_stub.so
+vendor/lib/libscveObjectSegmentation.so
+vendor/lib/libscveObjectSegmentation_stub.so
+vendor/lib/libscveObjectTracker.so
+vendor/lib/libscveObjectTracker_stub.so
+vendor/lib/libscvePanorama_lite.so
+vendor/lib/libscvePanorama.so
+vendor/lib/libscveTextRecoPostProcessing.so
+vendor/lib/libscveTextReco.so
+vendor/lib/libscveTextReco_stub.so
+
 # Sensors
 bin/sensors.qcom
 vendor/lib/hw/activity_recognition.msm8937.so
@@ -564,8 +591,6 @@ vendor/lib/libTimeService.so
 
 etc/firmware/ice40.bin
 
-# Widevine
-vendor/lib/mediadrm/libwvdrmengine.so
 
 # Wi-Fi
 bin/cnss-daemon
