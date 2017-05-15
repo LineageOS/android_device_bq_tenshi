@@ -718,12 +718,6 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
-service getinfo /system/bin/sh /init.get.project.info.sh
-    class main
-    user root
-    disabled
-    oneshot
-
 service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     class late_start
     user root
@@ -930,7 +924,6 @@ service adsprpcd /system/bin/adsprpcd
     class main
     user media
     group media
-
 
 service hvdcp_opti /system/bin/hvdcp_opti
     class main
