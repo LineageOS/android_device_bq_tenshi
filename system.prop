@@ -129,8 +129,8 @@ persist.mm.sta.enable=0
 
 # system prop for opengles version
 #
-# 196609 is decimal for 0x30001 to report major/minor versions as 3/1
-ro.opengles.version=196609
+# 196610 is decimal for 0x30002 to report major/minor versions as 3/2
+ro.opengles.version=196610
 
 # Camera
 persist.camera.is_type=1
