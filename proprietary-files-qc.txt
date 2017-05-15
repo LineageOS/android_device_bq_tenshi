@@ -516,6 +516,7 @@ bin/ipacm-diag
 bin/netmgrd
 bin/radish
 bin/rmt_storage
+bin/port-bridge
 bin/tftp_server
 etc/permissions/embms.xml
 #etc/permissions/qcnvitems.xml
