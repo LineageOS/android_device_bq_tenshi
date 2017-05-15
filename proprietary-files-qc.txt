@@ -483,6 +483,7 @@ vendor/bin/mm-pp-dpps
 vendor/lib/libdisp-aba.so
 
 # QMI
+bin/ATFWD-daemon
 bin/irsc_util
 etc/permissions/qti_permissions.xml
 vendor/lib/libdiag.so
@@ -516,6 +517,7 @@ bin/ipacm-diag
 bin/netmgrd
 bin/radish
 bin/rmt_storage
+bin/port-bridge
 bin/tftp_server
 etc/permissions/embms.xml
 #etc/permissions/qcnvitems.xml
