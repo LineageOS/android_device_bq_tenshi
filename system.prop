@@ -226,7 +226,7 @@ camera.display.umax=1920x1080
 camera.display.lmax=1280x720
 
 # set dpm enable NSRM
-persist.dpm.feature=7
+persist.dpm.feature=0
 persist.sys.dpmd.nsrm=3
 
 #set hal3 enable
