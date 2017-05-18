@@ -594,7 +594,6 @@ etc/firmware/ice40.bin
 
 # Wi-Fi
 bin/cnss-daemon
-bin/cnss_diag
 bin/wcnss_service
 bin/fstman
 etc/firmware/wlan/prima/WCNSS_cfg.dat
