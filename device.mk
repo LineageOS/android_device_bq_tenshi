@@ -148,7 +148,6 @@ PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.qcom.bt.sh \
     init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh \
     init.qcom.rc \
     init.qcom.sh \
     init.qcom.syspart_fixup.sh \
