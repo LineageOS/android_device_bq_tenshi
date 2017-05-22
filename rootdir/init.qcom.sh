@@ -50,7 +50,6 @@ datamode=`getprop persist.data.mode`
 
 case "$baseband" in
     "msm" | "unknown")
-    start qmuxd
     start ipacm-diag
     start ipacm
 
