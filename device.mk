@@ -120,6 +120,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/data/dsi_config.xml:system/etc/data/dsi_config.xml \
     $(LOCAL_PATH)/configs/data/netmgr_config.xml:system/etc/data/netmgr_config.xml
 
+# DPM
+PRODUCT_BOOT_JARS += \
+    com.qti.dpmframework \
+    dpmapi \
+    tcmclient
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd
