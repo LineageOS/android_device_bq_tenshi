@@ -42,40 +42,6 @@ start_sensors()
     fi
 }
 
-#
-# start ril-daemon only for targets on which radio is present
-#
-baseband=`getprop ro.baseband`
-datamode=`getprop persist.data.mode`
-
-case "$baseband" in
-    "msm" | "unknown")
-    start ipacm-diag
-    start ipacm
-
-    multisim=`getprop persist.radio.multisim.config`
-
-    if [ "$multisim" = "dsds" ] || [ "$multisim" = "dsda" ]; then
-        start ril-daemon2
-    fi
-
-    case "$datamode" in
-        "tethered")
-            start qti
-            start port-bridge
-            ;;
-        "concurrent")
-            start qti
-            start netmgrd
-            start port-bridge
-            ;;
-        *)
-            start netmgrd
-            ;;
-    esac
-esac
-
-
 start_sensors
 start msm_irqbalance
 
