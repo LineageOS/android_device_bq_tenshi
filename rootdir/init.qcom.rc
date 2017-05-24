@@ -798,14 +798,6 @@ service ril-daemon2 /system/bin/rild -c 2
     disabled
     group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
 
-service ril-daemon3 /system/bin/rild -c 3
-    class main
-    socket rild3 stream 660 root radio
-    socket rild-debug3 stream 660 radio system
-    user root
-    disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
-
 service hcidump /system/bin/sh /system/etc/hcidump.sh
     user bluetooth
     group bluetooth system net_bt_admin net_admin
