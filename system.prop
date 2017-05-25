@@ -79,7 +79,6 @@ ro.qualcomm.bluetooth.pbap=true
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720
-media.camera.ts.monotonic=0
 
 # Core control
 ro.core_ctl_min_cpu=2
