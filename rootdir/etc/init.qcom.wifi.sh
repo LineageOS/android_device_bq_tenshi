@@ -86,6 +86,3 @@ trigger_wcnss()
         echo $serialno > /sys/devices/platform/wcnss_wlan.0/serial_number
     fi
 }
-
-# Run audio init script
-/system/bin/sh /system/etc/init.qcom.audio.sh "$target" "$btsoc"
