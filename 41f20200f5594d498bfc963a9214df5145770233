@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa82b9bf_89c77a12",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-05-26T15:32:42Z",
+      "side": 1,
+      "message": "The point is to rewrite this as well, specially this. You should kill $(shell ...)",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 62
+      },
+      "revId": "41f20200f5594d498bfc963a9214df5145770233",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
