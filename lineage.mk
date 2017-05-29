@@ -31,6 +31,10 @@ PRODUCT_BRAND := bq
 PRODUCT_MODEL := Aquaris U Plus
 PRODUCT_MANUFACTURER := bq
 
+# Set product device & name
+PRODUCT_BUILD_PROP_OVERRIDES += \
+   TARGET_DEVICE=Aquaris_U_Plus PRODUCT_NAME=Aquaris_U_Plus
+
 # Overlays (inherit after vendor/cm to ensure we override it)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
