@@ -31,11 +31,15 @@ PRODUCT_BRAND := bq
 PRODUCT_MODEL := Aquaris U Plus
 PRODUCT_MANUFACTURER := bq
 
+# Set product device & name
+PRODUCT_BUILD_PROP_OVERRIDES += \
+   TARGET_DEVICE=tenshi PRODUCT_NAME=tenshi
+
 # Overlays (inherit after vendor/cm to ensure we override it)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_GMS_CLIENTID_BASE := android-bq
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="bq/tenshi/tenshi:7.1.1/NMF26F/1492687806:user/release-keys" \
+    BUILD_FINGERPRINT=bq/tenshi/tenshi:7.1.1/NMF26F/1492687806:user/release-keys \
     PRIVATE_BUILD_DESC="tenshi-user 7.1.1 NMF26F 2.1.0_20170420-1318 release-keys"
