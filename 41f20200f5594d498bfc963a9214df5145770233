@@ -46,6 +46,30 @@
       "revId": "41f20200f5594d498bfc963a9214df5145770233",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa82b9bf_78b0bef4",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 13648
+      },
+      "writtenOn": "2017-05-29T06:51:13Z",
+      "side": 1,
+      "message": "I can give you an example where this fails. Make a full build and you should see the symlink created. Now delete $OUT/system (not the whole $OUT folder!) and make an incremental build. Symlink will no longer be created.",
+      "parentUuid": "fa82b9bf_09db6aee",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 62
+      },
+      "revId": "41f20200f5594d498bfc963a9214df5145770233",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
