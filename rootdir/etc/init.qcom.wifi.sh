@@ -35,10 +35,7 @@
 # the Wifi) the script will load/unload the driver
 # This script will get called after post bootup.
 
-target="$1"
 serialno="$2"
-
-btsoc=""
 
 # No path is set up at this point so we have to do it here.
 PATH=/sbin:/system/sbin:/system/bin:/system/xbin
