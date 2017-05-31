@@ -69,52 +69,6 @@ config_bt ()
   else
     soc_hwid=`cat /sys/devices/system/soc/soc0/id`
   fi
-  btsoc=`getprop qcom.bluetooth.soc`
-
-  case $baseband in
-    "msm")
-        setprop ro.qualcomm.bluetooth.opp true
-        setprop ro.qualcomm.bluetooth.hfp true
-        setprop ro.qualcomm.bluetooth.hsp true
-        setprop ro.qualcomm.bluetooth.pbap true
-        setprop ro.qualcomm.bluetooth.ftp true
-        setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.bluetooth.sap true
-        setprop ro.bluetooth.dun true
-        case $btsoc in
-          "ath3k")
-              setprop ro.qualcomm.bluetooth.map false
-              ;;
-          *)
-              setprop ro.qualcomm.bluetooth.map true
-              ;;
-        esac
-        ;;
-    *)
-        setprop ro.qualcomm.bluetooth.opp true
-        setprop ro.qualcomm.bluetooth.hfp true
-        setprop ro.qualcomm.bluetooth.hsp true
-        setprop ro.qualcomm.bluetooth.pbap true
-        setprop ro.qualcomm.bluetooth.ftp true
-        setprop ro.qualcomm.bluetooth.map true
-        setprop ro.qualcomm.bluetooth.nap true
-        setprop ro.bluetooth.sap true
-        setprop ro.bluetooth.dun true
-        ;;
-  esac
-
-  #Enable Bluetooth Profiles specific to target Dynamically
-  case $target in
-    "msm8974" | "msm8226" | "msm8610" | "msm8916" | "msm8909" | "msm8952" | "msm8937" | "msm8953" )
-       if [ "$btsoc" != "ath3k" ]
-       then
-           setprop ro.bluetooth.hfp.ver 1.7
-           setprop ro.qualcomm.bt.hci_transport smd
-       fi
-       ;;
-    *)
-       ;;
-  esac
 
 if [ -f /system/etc/bluetooth/stack.conf ]; then
 stack=`cat /system/etc/bluetooth/stack.conf`
