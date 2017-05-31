@@ -80,10 +80,6 @@ camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 camera.display.umax=1920x1080
 camera.display.lmax=1280x720
 media.camera.ts.monotonic=0
-persist.camera.is_type=1
-persist.camera.gyro.android=1
-persist.camera.HAL3.enabled=1
-persist.camera.longshot.shotnum=40
 
 # Core control
 ro.core_ctl_min_cpu=2
@@ -163,7 +159,6 @@ ro.vendor.gt_library=libqti-gt.so
 # Misc
 ro.cutoff_voltage_mv=3400
 ro.emmc_size=16GB
-persist.sys.emmc_size=16
 
 # Qualcomm
 ro.qualcomm.cabl=2

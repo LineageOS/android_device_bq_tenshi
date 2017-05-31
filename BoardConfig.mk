@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -33,7 +34,7 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8937
+TARGET_BOOTLOADER_BOARD_NAME := msm8937
 TARGET_NO_BOOTLOADER := true
 
 # Kernel
@@ -151,7 +152,6 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 # of the device.
 MAX_EGL_CACHE_SIZE := 2048*1024
 
-HAVE_ADRENO_SOURCE := false
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 # Filesystem
