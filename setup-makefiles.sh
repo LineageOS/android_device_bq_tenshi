@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,6 @@
 
 set -e
 
-# Required!
 DEVICE=tenshi
 VENDOR=bq
 
@@ -44,9 +43,5 @@ write_headers
 
 write_makefiles "$MY_DIR"/proprietary-files.txt
 
-cat << EOF >> "$ANDROIDMK"
-\$(shell mkdir -p \$(PRODUCT_OUT)/system/vendor/lib/egl && pushd \$(PRODUCT_OUT)/system/vendor/lib > /dev/null && ln -s egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
-EOF
-
-# We are done!
+# Finish
 write_footers
