@@ -19,28 +19,28 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from tenshi device
-$(call inherit-product, device/bq/tenshi/device.mk)
+$(call inherit-product, device/xiaomi/land/device.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
-BOARD_VENDOR := bq
-PRODUCT_DEVICE := tenshi
-PRODUCT_NAME := lineage_tenshi
-PRODUCT_BRAND := bq
-PRODUCT_MODEL := Aquaris U Plus
-PRODUCT_MANUFACTURER := bq
+BOARD_VENDOR := Xiaomi
+PRODUCT_DEVICE := land
+PRODUCT_NAME := lineage_land
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := Redmi 3S
+PRODUCT_MANUFACTURER := Xiaomi
 
 # Set product device & name
 PRODUCT_BUILD_PROP_OVERRIDES += \
-   PRODUCT_NAME=tenshi
+   PRODUCT_NAME=land
 
 # Overlays (inherit after vendor/cm to ensure we override it)
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-PRODUCT_GMS_CLIENTID_BASE := android-bq
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=bq/tenshi/tenshi:7.1.1/NMF26F/1492687806:user/release-keys \
-    PRIVATE_BUILD_DESC="tenshi-user 7.1.1 NMF26F 2.1.0_20170420-1318 release-keys"
+    BUILD_FINGERPRINT=Xiaomi/land/land:6.0.1/MMB29M/V8.5.3.0.MALMIED:user/release-keys \
+    PRIVATE_BUILD_DESC="land-user 6.0.1 MMB29M V8.5.3.0.MALMIED release-keys"

@@ -30,8 +30,14 @@
      IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <resources>
-    <bool name="profile_supported_hfpclient">true</bool>
-    <bool name="profile_supported_avrcp_controller">true</bool>
     <bool name="profile_supported_a2dp_sink">true</bool>
+    <bool name="profile_supported_hfpclient">true</bool>
+    <bool name="pbap_include_photos_in_vcard">true</bool>
+    <bool name="profile_supported_avrcp_controller">true</bool>
     <bool name="profile_supported_sap">true</bool>
+
+    <!-- If true, we will require location to be enabled on the device to
+         fire Bluetooth LE scan result callbacks in addition to having one
+         of the location permissions. -->
+    <bool name="strict_location_check">false</bool>
 </resources>

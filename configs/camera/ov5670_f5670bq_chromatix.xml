@@ -94,7 +94,7 @@ special_mode_mask values:
   </CommonChromatixInfo>
   <ResolutionChromatixInfo>
     <ChromatixName sensor_resolution_index="0">
-      <ISPPreview>ov5670_f5670bq_snapshot</ISPPreview>
+      <ISPPreview>ov5670_f5670bq_preview</ISPPreview>
       <ISPSnapshot>ov5670_f5670bq_snapshot</ISPSnapshot>
       <ISPVideo>ov5670_f5670bq_video_full</ISPVideo>
       <CPPVideo>ov5670_f5670bq_cpp_video_full</CPPVideo>

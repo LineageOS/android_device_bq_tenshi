@@ -1,10 +1,8 @@
-Device Tree for BQ Aquaris U Plus (tenshi)
+Device Tree for Xiaomi Redmi 3S (land)
 ===========================================
 
-The BQ Aquaris U Plus (codenamed _"tenshi"_) is a low-mid range smartphone from BQ.
-It was released in October 2016.
-
-Copyright 2016 - The CyanogenMod Project.
+The Xiaomi Redmi 3S (codenamed _"land"_) is a low-mid range smartphone from Xiaomi.
+It was released in June 2016.
 
 Basic   | Spec Sheet
 -------:|:-------------------------
@@ -14,12 +12,12 @@ GPU     | Adreno 505
 Memory  | 2 / 3 GB RAM
 Shipped Android Version | 6.0.1
 Storage | 16/32 GB
-MicroSD | Up to 32GB
-Battery | Non-removable Li-Po 3100 mAh battery
+MicroSD | Up to 256GB
+Battery | Non-removable Li-Ion 4100 mAh battery
 Display | 1280x720 pixels, 5.0 inches (~294 ppi pixel density)
-Camera  | Primary: 16 MP, f/2.0 (Samsung S5K3P3)
-Camera (front)	| 5 MP, f/2.4, 1080p (Omnivision OV5675)
+Camera  | Primary: 16 MP, f/2.0 (Samsung S5K3L8)
+Camera (front)	| 5 MP, f/2.2, 1080p (Omnivision ov5670)
 
 Copyright (C) 2017 The LineageOS Project.
 
-![Aquaris U Plus](https://store.bq.com/media/catalog/product/cache/4/image/800x800/9df78eab33525d08d6e5fb8d27136e95/a/q/aquaris_uplus_galeria_antracita_800x800_2.jpg "BQ Aquaris U Plus")
+![Redmi 3S](http://i.imgur.com/GRxlrQV.jpg "Xiaomi Redmi 3S")

@@ -32,7 +32,7 @@ include $(CLEAR_VARS)
 
 ADSP_IMAGES := \
     adsp.b00 adsp.b01 adsp.b02 adsp.b03 adsp.b04 adsp.b05 adsp.b06 adsp.b07 \
-    adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 adsp.b14 adsp.mdt
+    adsp.b08 adsp.b09 adsp.b10 adsp.b11 adsp.b12 adsp.b13 adsp.mdt
 
 ADSP_SYMLINKS := $(addprefix $(TARGET_OUT_VENDOR)/firmware/,$(notdir $(ADSP_IMAGES)))
 $(ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -42,6 +42,19 @@ $(ADSP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(ADSP_SYMLINKS)
+
+CARDAPP_IMAGES := \
+    cardapp.b00 cardapp.b01 cardapp.b02 cardapp.b03 cardapp.b04 cardapp.b05 \
+    cardapp.b06 cardapp.mdt
+
+CARDAPP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(CARDAPP_IMAGES)))
+$(CARDAPP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "CARDAPP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(CARDAPP_SYMLINKS)
 
 CMN_IMAGES := \
     cmnlib64.b00 cmnlib64.b01 cmnlib64.b02 cmnlib64.b03 cmnlib64.b04 cmnlib64.b05 cmnlib64.mdt \
@@ -82,6 +95,19 @@ $(CPPF_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(CPPF_SYMLINKS)
 
+DHSECAPP_IMAGES := \
+    dhsecapp.b00 dhsecapp.b01 dhsecapp.b02 dhsecapp.b03 dhsecapp.b04 dhsecapp.b05 \
+    dhsecapp.b06 dhsecapp.mdt
+
+DHSECAPP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(DHSECAPP_IMAGES)))
+$(DHSECAPP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "DHSECAPP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(DHSECAPP_SYMLINKS)
+
 FINGERPRINT_IMAGES := \
     fingerpr.b00 fingerpr.b01 fingerpr.b02 fingerpr.b03 fingerpr.b04 fingerpr.b05 \
     fingerpr.b06 fingerpr.mdt
@@ -95,18 +121,54 @@ $(FINGERPRINT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FINGERPRINT_SYMLINKS)
 
-FPCTZAPP_IMAGES := \
-    fpctzapp.b00 fpctzapp.b01 fpctzapp.b02 fpctzapp.b03 fpctzapp.b04 fpctzapp.b05 \
-    fpctzapp.b06 fpctzapp.mdt
+FPCTA_IMAGES := \
+    fpcta.b00 fpcta.b01 fpcta.b02 fpcta.b03 fpcta.b04 fpcta.b05 fpcta.b06 fpcta.mdt
 
-FPCTZAPP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FPCTZAPP_IMAGES)))
-$(FPCTZAPP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "FPCTZAPP firmware link: $@"
+FPCTA_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FPCTA_IMAGES)))
+$(FPCTA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "FPCTA firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	@$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(FPCTZAPP_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(FPCTA_SYMLINKS)
+
+GOODIXFP_IMAGES := \
+    goodixfp.b00 goodixfp.b01 goodixfp.b02 goodixfp.b03 goodixfp.b04 goodixfp.b05 \
+    goodixfp.b06 goodixfp.mdt
+
+GOODIXFP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(GOODIXFP_IMAGES)))
+$(GOODIXFP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "GOODIXFP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(GOODIXFP_SYMLINKS)
+
+GPTAUUID_IMAGES := gptauuid.xml
+
+GPTAUUID_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(GPTAUUID_IMAGES)))
+$(GPTAUUID_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "GPTAUUID firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(GPTAUUID_SYMLINKS)
+
+GPTEST_IMAGES := \
+    gptest.b00 gptest.b01 gptest.b02 gptest.b03 gptest.b04 gptest.b05 \
+    gptest.b06 gptest.mdt
+
+GPTEST_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(GPTEST_IMAGES)))
+$(GPTEST_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "GPTEST firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(GPTEST_SYMLINKS)
 
 ISDB_IMAGES := \
     isdbtmm.b00 isdbtmm.b01 isdbtmm.b02 isdbtmm.b03 isdbtmm.b04 isdbtmm.b05 \
@@ -132,22 +194,23 @@ $(MBA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MBA_SYMLINKS)
 
-MDTP_IMAGES := \
-    mdtp.b00 mdtp.b01 mdtp.b02 mdtp.b03 mdtp.b04 mdtp.b05 mdtp.b06 mdtp.mdt
+MLIPAY_IMAGES := \
+    mlipay.b00 mlipay.b01 mlipay.b02 mlipay.b03 mlipay.b04 mlipay.b05 mlipay.b06 \
+    mlipay.mdt
 
-MDTP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MDTP_IMAGES)))
-$(MDTP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "MDTP firmware link: $@"
+MLIPAY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MLIPAY_IMAGES)))
+$(MLIPAY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "MLIPAY firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
-ALL_DEFAULT_INSTALLED_MODULES += $(MDTP_SYMLINKS)
+ALL_DEFAULT_INSTALLED_MODULES += $(MLIPAY_SYMLINKS)
 
 MODEM_IMAGES := \
     modem.b00 modem.b01 modem.b03 modem.b05 modem.b06 modem.b07 modem.b08 \
     modem.b09 modem.b10 modem.b11 modem.b12 modem.b13 modem.b14 modem.b15 \
-    modem.b19 modem.b20 modem.b21 modem.b22 modem.b23 modem.b24 modem.mdt modem_pr
+    modem.b19 modem.b20 modem.b21 modem.b22 modem.b23 modem.b24 modem.mdt
 
 MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MODEM_IMAGES)))
 $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -158,9 +221,49 @@ $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
 
+QMPSECAP_IMAGES := \
+    qmpsecap.b00 qmpsecap.b01 qmpsecap.b02 qmpsecap.b03 qmpsecap.b04 qmpsecap.b05 \
+    qmpsecap.b06 qmpsecap.mdt
+
+QMPSECAP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(QMPSECAP_IMAGES)))
+$(QMPSECAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "QMPSECAP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(QMPSECAP_SYMLINKS)
+
+SECAUTH_IMAGES := \
+    secauth.b00 secauth.b01 secauth.b02 secauth.b03 secauth.b04 secauth.b05 \
+    secauth.b06 secauth.mdt
+
+SECAUTH_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SECAUTH_IMAGES)))
+$(SECAUTH_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SECAUTH firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SECAUTH_SYMLINKS)
+
+SECUREMM_IMAGES := \
+    securemm.b00 securemm.b01 securemm.b02 securemm.b03 securemm.b04 securemm.b05 \
+    securemm.b06 securemm.mdt
+
+SECUREMM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SECUREMM_IMAGES)))
+$(SECUREMM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SECUREMM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SECUREMM_SYMLINKS)
+
 SMPLAP_IMAGES := \
     smplap32.b00 smplap32.b01 smplap32.b02 smplap32.b03 smplap32.b04 smplap32.b05 \
-    smplap32.b06 smplap32.mdt
+    smplap32.b06 smplap32.mdt smplap64.b00 smplap64.b01 smplap64.b02 smplap64.b03 \
+    smplap64.b04 smplap64.b05 smplap64.b06 smplap64.mdt
 
 SMPLAP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SMPLAP_IMAGES)))
 $(SMPLAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
@@ -182,6 +285,19 @@ $(VENUS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(VENUS_SYMLINKS)
+
+VSIMAPP_IMAGES := \
+    vsimapp.b00 vsimapp.b01 vsimapp.b02 vsimapp.b03 vsimapp.b04 vsimapp.b05 \
+    vsimapp.b06 vsimapp.mdt
+
+VSIMAPP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(VSIMAPP_IMAGES)))
+$(VSIMAPP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "VSIMAPP firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(VSIMAPP_SYMLINKS)
 
 WCNSS_INI_SYMLINK := $(TARGET_OUT_ETC)/firmware/wlan/prima/WCNSS_qcom_cfg.ini
 $(WCNSS_INI_SYMLINK): $(LOCAL_INSTALLED_MODULE)

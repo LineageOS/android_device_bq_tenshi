@@ -78,66 +78,61 @@ special_mode_mask values:
 
 <ChromatixConfigurationRoot>
   <CommonChromatixInfo>
-    <ChromatixName special_mode_mask="0">
-      <ISPCommon>ov5675_d5v15b_common</ISPCommon>
-      <PostProc>ov5675_d5v15b_postproc</PostProc>
+    <ChromatixName>
+      <ISPCommon>s5k5e8_common</ISPCommon>
+      <PostProc>s5k5e8_postproc</PostProc>
+      <CPPPreview>s5k5e8_cpp_preview</CPPPreview>
+      <CPPSnapshot>s5k5e8_cpp_snapshot</CPPSnapshot>
+      <CPPLiveshot>s5k5e8_cpp_liveshot</CPPLiveshot>
+    </ChromatixName>
+    <ChromatixName special_mode_mask="ZOOM_UPSCALE">
+      <CPPSnapshot>s5k5e8_cpp_us_chromatix</CPPSnapshot>
+    </ChromatixName>
+    <ChromatixName special_mode_mask="ZOOM_DOWNSCALE">
+      <CPPSnapshot>s5k5e8_cpp_ds_chromatix</CPPSnapshot>
     </ChromatixName>
   </CommonChromatixInfo>
   <ResolutionChromatixInfo>
-    <ChromatixName sensor_resolution_index="0" special_mode_mask="0">
-      <ISPPreview>ov5675_d5v15b_snapshot</ISPPreview>
-      <ISPSnapshot>ov5675_d5v15b_snapshot</ISPSnapshot>
-      <ISPVideo>ov5675_d5v15b_snapshot</ISPVideo>
-      <CPPPreview>ov5675_d5v15b_cpp_preview</CPPPreview>
-      <CPPSnapshot>ov5675_d5v15b_cpp_snapshot</CPPSnapshot>
-      <CPPVideo>ov5675_d5v15b_cpp_video</CPPVideo>
-      <CPPLiveshot>ov5675_d5v15b_cpp_liveshot</CPPLiveshot>
-      <A3Preview>ov5675_d5v15b_zsl_preview_3a</A3Preview>
-      <A3Video>ov5675_d5v15b_zsl_video_3a</A3Video>
+    <ChromatixName sensor_resolution_index="0">
+      <ISPPreview>s5k5e8_snapshot</ISPPreview>
+      <ISPSnapshot>s5k5e8_snapshot</ISPSnapshot>
+      <ISPVideo>s5k5e8_default_video</ISPVideo>
+      <CPPVideo>s5k5e8_cpp_video</CPPVideo>
+      <A3Preview>s5k5e8_zsl_preview</A3Preview>
+      <A3Video>s5k5e8_zsl_video</A3Video>
     </ChromatixName>
-    <ChromatixName sensor_resolution_index="1" special_mode_mask="0">
-      <ISPPreview>ov5675_d5v15b_snapshot</ISPPreview>
-      <ISPSnapshot>ov5675_d5v15b_snapshot</ISPSnapshot>
-      <ISPVideo>ov5675_d5v15b_snapshot</ISPVideo>
-      <CPPPreview>ov5675_d5v15b_cpp_preview</CPPPreview>
-      <CPPSnapshot>ov5675_d5v15b_cpp_snapshot</CPPSnapshot>
-      <CPPVideo>ov5675_d5v15b_cpp_video</CPPVideo>
-      <CPPLiveshot>ov5675_d5v15b_cpp_liveshot</CPPLiveshot>
-      <A3Preview>ov5675_d5v15b_default_preview_3a</A3Preview>
-      <A3Video>ov5675_d5v15b_default_video_3a</A3Video>
+    <ChromatixName sensor_resolution_index="1">
+      <ISPPreview>s5k5e8_preview</ISPPreview>
+      <ISPSnapshot>s5k5e8_preview</ISPSnapshot>
+      <ISPVideo>s5k5e8_default_video</ISPVideo>
+      <CPPVideo>s5k5e8_cpp_video</CPPVideo>
+      <A3Preview>s5k5e8_a3_default_preview</A3Preview>
+      <A3Video>s5k5e8_a3_default_video</A3Video>
     </ChromatixName>
-    <ChromatixName sensor_resolution_index="2" special_mode_mask="0">
-      <ISPPreview>ov5675_d5v15b_hfr_60</ISPPreview>
-      <ISPSnapshot>ov5675_d5v15b_hfr_60</ISPSnapshot>
-      <ISPVideo>ov5675_d5v15b_hfr_60</ISPVideo>
-      <CPPPreview>ov5675_d5v15b_cpp_hfr_60</CPPPreview>
-      <CPPSnapshot>ov5675_d5v15b_cpp_hfr_60</CPPSnapshot>
-      <CPPVideo>ov5675_d5v15b_cpp_hfr_60</CPPVideo>
-      <CPPLiveshot>ov5675_d5v15b_cpp_hfr_60</CPPLiveshot>
-      <A3Preview>ov5675_d5v15b_hfr_60_3a</A3Preview>
-      <A3Video>ov5675_d5v15b_hfr_60_3a</A3Video>
+    <ChromatixName sensor_resolution_index="2">
+      <ISPPreview>s5k5e8_hfr_60</ISPPreview>
+      <ISPSnapshot>s5k5e8_hfr_60</ISPSnapshot>
+      <ISPVideo>s5k5e8_hfr_60</ISPVideo>
+      <CPPVideo>s5k5e8_cpp_hfr_60</CPPVideo>
+      <A3Preview>s5k5e8_a3_hfr_60</A3Preview>
+      <A3Video>s5k5e8_a3_hfr_60</A3Video>
     </ChromatixName>
-    <ChromatixName sensor_resolution_index="3" special_mode_mask="0">
-      <ISPPreview>ov5675_d5v15b_hfr_90</ISPPreview>
-      <ISPSnapshot>ov5675_d5v15b_hfr_90</ISPSnapshot>
-      <ISPVideo>ov5675_d5v15b_hfr_90</ISPVideo>
-      <CPPPreview>ov5675_d5v15b_cpp_hfr_90</CPPPreview>
-      <CPPSnapshot>ov5675_d5v15b_cpp_hfr_90</CPPSnapshot>
-      <CPPVideo>ov5675_d5v15b_cpp_hfr_90</CPPVideo>
-      <CPPLiveshot>ov5675_d5v15b_cpp_hfr_90</CPPLiveshot>
-      <A3Preview>ov5675_d5v15b_hfr_90_3a</A3Preview>
-      <A3Video>ov5675_d5v15b_hfr_90_3a</A3Video>
+    <ChromatixName sensor_resolution_index="3">
+      <ISPPreview>s5k5e8_hfr_90</ISPPreview>
+      <ISPSnapshot>s5k5e8_hfr_90</ISPSnapshot>
+      <ISPVideo>s5k5e8_hfr_90</ISPVideo>
+      <CPPVideo>s5k5e8_cpp_hfr_90</CPPVideo>
+      <A3Preview>s5k5e8_a3_hfr_90</A3Preview>
+      <A3Video>s5k5e8_a3_hfr_90</A3Video>
     </ChromatixName>
-    <ChromatixName sensor_resolution_index="4" special_mode_mask="0">
-      <ISPPreview>ov5675_d5v15b_hfr_120</ISPPreview>
-      <ISPSnapshot>ov5675_d5v15b_hfr_120</ISPSnapshot>
-      <ISPVideo>ov5675_d5v15b_hfr_120</ISPVideo>
-      <CPPPreview>ov5675_d5v15b_cpp_hfr_120</CPPPreview>
-      <CPPSnapshot>ov5675_d5v15b_cpp_hfr_120</CPPSnapshot>
-      <CPPVideo>ov5675_d5v15b_cpp_hfr_120</CPPVideo>
-      <CPPLiveshot>ov5675_d5v15b_cpp_hfr_120</CPPLiveshot>
-      <A3Preview>ov5675_d5v15b_hfr_120_3a</A3Preview>
-      <A3Video>ov5675_d5v15b_hfr_120_3a</A3Video>
+    <ChromatixName sensor_resolution_index="4">
+      <ISPPreview>s5k5e8_hfr_120</ISPPreview>
+      <ISPSnapshot>s5k5e8_hfr_120</ISPSnapshot>
+      <ISPVideo>s5k5e8_hfr_120</ISPVideo>
+      <CPPVideo>s5k5e8_cpp_hfr_120</CPPVideo>
+      <A3Preview>s5k5e8_a3_hfr_120</A3Preview>
+      <A3Video>s5k5e8_a3_hfr_120</A3Video>
     </ChromatixName>
   </ResolutionChromatixInfo>
 </ChromatixConfigurationRoot>
+
