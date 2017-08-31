@@ -9,28 +9,29 @@ AM_CFLAGS = -Wundef \
          $(LOCPLA_CFLAGS)
 
 libgps_utils_so_la_h_sources = \
-            msg_q.h \
-            linked_list.h \
-            loc_cfg.h \
-            loc_log.h \
-            loc_target.h \
-            loc_timer.h \
-            MsgTask.h \
-            LocHeap.h \
-            LocThread.h \
-            LocTimer.h \
-            loc_misc_utils.h
+        msg_q.h \
+        linked_list.h \
+        loc_cfg.h \
+        loc_log.h \
+        loc_target.h \
+        loc_timer.h \
+        MsgTask.h \
+        LocHeap.h \
+        LocThread.h \
+        LocTimer.h \
+        loc_misc_utils.h
 
-libgps_utils_so_la_c_sources = linked_list.c \
-            msg_q.c \
-            loc_cfg.cpp \
-            loc_log.cpp \
-            loc_target.cpp \
-            LocHeap.cpp \
-            LocTimer.cpp \
-            LocThread.cpp \
-            MsgTask.cpp \
-            loc_misc_utils.cpp
+libgps_utils_so_la_c_sources = \
+        linked_list.c \
+        msg_q.c \
+        loc_cfg.cpp \
+        loc_log.cpp \
+        loc_target.cpp \
+        LocHeap.cpp \
+        LocTimer.cpp \
+        LocThread.cpp \
+        MsgTask.cpp \
+        loc_misc_utils.cpp
 
 library_includedir = $(pkgincludedir)/utils
 

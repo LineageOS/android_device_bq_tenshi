@@ -526,7 +526,7 @@ DEFAULT_IMPL(LOC_API_ADAPTER_ERR_SUCCESS)
 
 enum loc_api_adapter_err LocApiBase::
         setLPPeProtocol(unsigned long lppeCP, unsigned long lppeUP)
-DEFAULT_IMPL(LOC_API_ADAPTER_ERR_SUCCESS)
+    DEFAULT_IMPL(LOC_API_ADAPTER_ERR_SUCCESS)
 
 enum loc_api_adapter_err LocApiBase::
    getWwanZppFix(GpsLocation& zppLoc)

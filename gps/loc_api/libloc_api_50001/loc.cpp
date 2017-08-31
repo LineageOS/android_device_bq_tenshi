@@ -603,7 +603,7 @@ const GpsGeofencingInterface* get_geofence_interface(void)
     if (NULL == get_gps_geofence_interface)  {
         LOC_LOGE ("%s, get_gps_geofence_interface is NULL\n", __func__);
         goto exit;
-     }
+    }
 
     geofence_interface = get_gps_geofence_interface();
 
