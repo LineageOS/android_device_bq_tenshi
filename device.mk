@@ -238,21 +238,21 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level-0.xml \
     frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version-1_0_3.xml
 
-# Wifi
+# Wi-Fi
 PRODUCT_PACKAGES += \
-    hostapd \
-    wpa_supplicant \
-    wpa_supplicant.conf
-
-# Wifi
-PRODUCT_PACKAGES += \
-    libwpa_client \
     libqsap_sdk \
-    libQWiFiSoftApCfg
+    libQWiFiSoftApCfg \
+    libwpa_client \
+    hostapd_default.conf \
+    hostapd \
+    fstman.ini \
+    wpa_supplicant \
+    wpa_supplicant.conf \
+    wcnss_service \
+    WCNSS_cfg.dat \
+    WCNSS_qcom_wlan_nv.bin \
+    WCNSS_qcom_cfg.ini
 
-# WCNSS firmware
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_wlan_dictionary.dat:system/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
+PRODUCT_PACKAGES += \
+    p2p_supplicant_overlay.conf \
+    wpa_supplicant_overlay.conf
