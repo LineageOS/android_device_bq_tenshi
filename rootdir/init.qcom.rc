@@ -659,14 +659,6 @@ service wifi_ftmd /system/bin/wifi_ftmd
     disabled
     oneshot
 
-service cnss-daemon /system/bin/cnss-daemon -n -l
-    class late_start
-    user system
-    group system inet net_admin wifi
-
-on property:sys.shutdown.requested=*
-    stop cnss-daemon
-
 service loc_launcher /system/bin/loc_launcher
     #loc_launcher will start as root and set its uid to gps
     class late_start
