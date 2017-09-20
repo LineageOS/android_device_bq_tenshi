@@ -95,8 +95,6 @@ debug.mdpcomp.logs=0
 dev.pm.dyn_samplingrate=1
 persist.hwc.mdpcomp.enable=true
 persist.demo.hdmirotationlock=false
-ro.sf.lcd_density=320
-ro.opengles.version=196610
 
 # DPM
 persist.dpm.feature=7
