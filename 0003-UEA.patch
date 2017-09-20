@@ -1,0 +1,599 @@
+From d9a565260d80b3baea26ef61c7d8c8350bc5e3bb Mon Sep 17 00:00:00 2001
+From: Eloi Carracedo <eloimuns@gmail.com>
+Date: Wed, 20 Sep 2017 17:02:14 +0200
+Subject: [PATCH 3/3] UEA!
+
+Change-Id: Ie931d364e4c3e878eb4f04b8a22c08773e3c8c8d
+---
+ BoardConfig.mk                |  8 +++-
+ device.mk                     |  5 +--
+ proprietary-files.txt         |  3 ++
+ rootdir/Android.mk            | 41 ++------------------
+ rootdir/etc/fstab.qcom        | 19 +++++----
+ rootdir/etc/init.bq.common.rc | 48 -----------------------
+ rootdir/etc/init.bq.device.rc | 18 ---------
+ rootdir/etc/init.bq.tp.sh     | 89 -------------------------------------------
+ rootdir/etc/init.qcom.rc      | 41 --------------------
+ rootdir/etc/init.qcom.sh      | 34 -----------------
+ rootdir/etc/init.target.rc    | 42 +++++++++++++++++++-
+ 11 files changed, 67 insertions(+), 281 deletions(-)
+ delete mode 100644 rootdir/etc/init.bq.common.rc
+ delete mode 100644 rootdir/etc/init.bq.device.rc
+ delete mode 100644 rootdir/etc/init.bq.tp.sh
+
+diff --git a/BoardConfig.mk b/BoardConfig.mk
+index 7150578..71eab47 100644
+--- a/BoardConfig.mk
++++ b/BoardConfig.mk
+@@ -39,6 +39,7 @@ TARGET_NO_BOOTLOADER := true
+ 
+ # Kernel
+ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000
++BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+ BOARD_KERNEL_BASE := 0x80000000
+ BOARD_KERNEL_IMAGE_NAME := zImage-dtb
+ BOARD_KERNEL_PAGESIZE := 2048
+@@ -154,13 +155,16 @@ MAX_EGL_CACHE_SIZE := 2048*1024
+ 
+ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+ 
++# Encryption
++TARGET_HW_DISK_ENCRYPTION := true
++
+ # Filesystem
+ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
+ BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472
+ BOARD_USERDATAIMAGE_PARTITION_SIZE := 11003206656
+-BOARD_CACHEIMAGE_PARTITION_SIZE := 260046848
++BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
+ TARGET_USERIMAGES_USE_EXT4 := true
+ 
+ # FM
+@@ -198,7 +202,7 @@ BOARD_USES_QCOM_HARDWARE := true
+ BOARD_USES_QC_TIME_SERVICES := true
+ 
+ # Recovery
+-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
++TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.qcom
+ 
+ # RIL
+ TARGET_RIL_VARIANT := caf
+diff --git a/device.mk b/device.mk
+index 89a7906..70b97a4 100644
+--- a/device.mk
++++ b/device.mk
+@@ -147,15 +147,12 @@ PRODUCT_BOOT_JARS += \
+ # Init
+ PRODUCT_PACKAGES += \
+     fstab.qcom \
+-    init.bq.common.rc \
+-		init.bq.device.rc \
+     init.qcom.early_boot.sh \
+ 		init.qcom.post_boot.sh \
+     init.qcom.rc \
+     init.qcom.sh \
+     init.qcom.usb.rc \
+-    ueventd.qcom.rc \
+-		init.bq.tp.sh
++    ueventd.qcom.rc
+ 
+ # IPA Manager
+ PRODUCT_PACKAGES += \
+diff --git a/proprietary-files.txt b/proprietary-files.txt
+index 5a85549..4c5356a 100755
+--- a/proprietary-files.txt
++++ b/proprietary-files.txt
+@@ -596,4 +596,7 @@ vendor/lib/libTimeService.so
+ etc/firmware/ice40.bin
+ 
+ # Wi-Fi
++bin/cnss-daemon
++bin/fstman
+ bin/wcnss_service
++etc/wifi/fstman.ini
+diff --git a/rootdir/Android.mk b/rootdir/Android.mk
+index af50fed..a8b38ea 100644
+--- a/rootdir/Android.mk
++++ b/rootdir/Android.mk
+@@ -11,34 +11,10 @@ LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+ include $(BUILD_PREBUILT)
+ 
+ include $(CLEAR_VARS)
+-LOCAL_MODULE       := init.bq.common.rc
+-LOCAL_MODULE_TAGS  := optional eng
+-LOCAL_MODULE_CLASS := ETC
+-LOCAL_SRC_FILES    := etc/init.bq.common.rc
+-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+-LOCAL_MODULE       := init.bq.device.rc
+-LOCAL_MODULE_TAGS  := optional eng
+-LOCAL_MODULE_CLASS := ETC
+-LOCAL_SRC_FILES    := etc/init.bq.device.rc
+-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+ LOCAL_MODULE       := init.qcom.early_boot.sh
+ LOCAL_MODULE_TAGS  := optional eng
+ LOCAL_MODULE_CLASS := ETC
+-LOCAL_SRC_FILES    := init.qcom.early_boot.sh
+-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+-LOCAL_MODULE       := init.qcom.post_boot.sh
+-LOCAL_MODULE_TAGS  := optional eng
+-LOCAL_MODULE_CLASS := ETC
+-LOCAL_SRC_FILES    := init.qcom.post_boot.sh
++LOCAL_SRC_FILES    := etc/init.qcom.early_boot.sh
+ LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+ include $(BUILD_PREBUILT)
+ 
+@@ -67,14 +43,6 @@ LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+ include $(BUILD_PREBUILT)
+ 
+ include $(CLEAR_VARS)
+-LOCAL_MODULE       := init.qcom.usb.sh
+-LOCAL_MODULE_TAGS  := optional eng
+-LOCAL_MODULE_CLASS := ETC
+-LOCAL_SRC_FILES    := etc/init.qcom.usb.sh
+-LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+-include $(BUILD_PREBUILT)
+-
+-include $(CLEAR_VARS)
+ LOCAL_MODULE       := init.target.rc
+ LOCAL_MODULE_TAGS  := optional eng
+ LOCAL_MODULE_CLASS := ETC
+@@ -86,15 +54,14 @@ include $(CLEAR_VARS)
+ LOCAL_MODULE       := ueventd.qcom.rc
+ LOCAL_MODULE_TAGS  := optional eng
+ LOCAL_MODULE_CLASS := ETC
+-LOCAL_SRC_FILES    := ueventd.qcom.rc
++LOCAL_SRC_FILES    := etc/ueventd.qcom.rc
+ LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
+ include $(BUILD_PREBUILT)
+ 
+ # Configuration scripts
+-
+ include $(CLEAR_VARS)
+-LOCAL_MODULE       := init.bq.tp.sh
++LOCAL_MODULE       := init.qcom.post_boot.sh
+ LOCAL_MODULE_TAGS  := optional eng
+ LOCAL_MODULE_CLASS := ETC
+-LOCAL_SRC_FILES    := etc/init.bq.tp.sh
++LOCAL_SRC_FILES    := etc/init.qcom.post_boot.sh
+ include $(BUILD_PREBUILT)
+diff --git a/rootdir/etc/fstab.qcom b/rootdir/etc/fstab.qcom
+index aa8b5e2..807e82c 100644
+--- a/rootdir/etc/fstab.qcom
++++ b/rootdir/etc/fstab.qcom
+@@ -5,10 +5,15 @@
+ #TODO: Add 'check' as fs_mgr_flags with data partition.
+ # Currently we dont have e2fsck compiled. So fs check would failed.
+ 
+-#<src>                                                <mnt_point>  <type>  <mnt_flags and options>                     <fs_mgr_flags>
+-/dev/block/bootdevice/by-name/system         /system      ext4    ro,barrier=1,discard                                wait, verify
+-/dev/block/bootdevice/by-name/userdata       /data        ext4    nosuid,nodev,barrier=1,noauto_da_alloc,discard      wait,resize,forceencrypt=footer
+-/devices/soc/7864900.sdhci/mmc_host*        /storage/sdcard1   vfat    nosuid,nodev         wait,voldmanaged=sdcard1:auto,noemulatedsd,encryptable=footer
+-/devices/soc/78db000.usb/msm_hsusb_host*    /storage/usbotg    vfat    nosuid,nodev         wait,voldmanaged=usbotg:auto
+-/dev/block/bootdevice/by-name/config         /frp  emmc    defaults                                            defaults
+-/dev/block/bootdevice/by-name/misc          /misc              emmc    defaults             defaults
++#<src>                                              <mnt_point>      <type>  <mnt_flags and options>                 <fs_mgr_flags>
++/dev/block/bootdevice/by-name/system                /system          ext4    ro,barrier=1                            wait,verify
++/dev/block/bootdevice/by-name/userdata              /data            ext4    nosuid,nodev,barrier=1,noauto_da_alloc  wait,resize,encryptable=footer,length=-16384
++/dev/block/bootdevice/by-name/config                /frp             emmc    defaults                                defaults
++/dev/block/bootdevice/by-name/misc                  /misc            emmc    defaults                                defaults
++
++/dev/block/bootdevice/by-name/boot                  /boot            emmc    defaults                                recoveryonly
++/dev/block/bootdevice/by-name/recovery              /recovery        emmc    defaults                                recoveryonly
++
++# Storage
++/devices/soc/7864900.sdhci/mmc_host*                /storage/sdcard1 vfat    nosuid,nodev                            wait,voldmanaged=sdcard1:auto,noemulatedsd,encryptable=footer
++/devices/soc/78db000.usb/msm_hsusb_host*            /storage/usbotg  vfat    nosuid,nodev                            wait,voldmanaged=usbotg:auto
+diff --git a/rootdir/etc/init.bq.common.rc b/rootdir/etc/init.bq.common.rc
+deleted file mode 100644
+index 86116d5..0000000
+--- a/rootdir/etc/init.bq.common.rc
++++ /dev/null
+@@ -1,48 +0,0 @@
+-on property:persist.sys.runin=enable
+-    write /sys/class/power_supply/battery/device/BatteryTestStatus 1
+-    write /sys/devices/soc.0/qpnp-smbcharger-17/BatteryTestStatus 1
+-
+-on property:persist.sys.runin=disable
+-    write /sys/class/power_supply/battery/device/BatteryTestStatus 0
+-    write /sys/devices/soc.0/qpnp-smbcharger-17/BatteryTestStatus 0
+-
+-on post-fs-data
+-service tpver /system/bin/sh /system/etc/init.bq.tp.sh
+-    class late_start
+-    user root
+-    oneshot
+-
+-service nvtools /system/bin/nvtool
+-    class late_start
+-    disabled
+-    oneshot
+-
+-on property:sys.boot_completed=1
+-    start nvtools
+-
+-on boot
+-    # Double Tap to Wake
+-    chown root system /sys/android_touch/wakeup_gesture_enable
+-    chmod 0660 /sys/android_touch/wakeup_gesture_enable
+-
+-    #Vibrator intensity modifier
+-    chown system system /sys/class/timed_output/vibrator/enable
+-    chown system system /sys/class/timed_output/vibrator/wf_s0
+-    chown system system /sys/class/timed_output/vibrator/wf_s1
+-    chown system system /sys/class/timed_output/vibrator/wf_s2
+-    chown system system /sys/class/timed_output/vibrator/wf_s3
+-    chown system system /sys/class/timed_output/vibrator/wf_s4
+-    chown system system /sys/class/timed_output/vibrator/wf_s5
+-    chown system system /sys/class/timed_output/vibrator/wf_s6
+-    chown system system /sys/class/timed_output/vibrator/wf_s7
+-    chown system system /sys/class/timed_output/vibrator/wf_update_now
+-
+-    chown system system /sys/class/leds/red/blink
+-    chown system system /sys/class/leds/blue/blink
+-    chown system system /sys/class/leds/green/blink
+-    chown system system /sys/class/leds/red/led_time
+-    chown system system /sys/class/leds/blue/led_time
+-    chown system system /sys/class/leds/green/led_time
+-
+-    #tp version
+-    start tpver
+diff --git a/rootdir/etc/init.bq.device.rc b/rootdir/etc/init.bq.device.rc
+deleted file mode 100644
+index be5b364..0000000
+--- a/rootdir/etc/init.bq.device.rc
++++ /dev/null
+@@ -1,18 +0,0 @@
+-on boot
+-    chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-005f/irq
+-    chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-005f/clk_enable
+-    chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-005f/wakeup_enable
+-on post-fs-data
+-    # Create directory for TZ Apps
+-    mkdir /data/fpc_images 0770 system system
+-    chmod 0770 /data/fpc_images
+-service fingerprintd /system/bin/fingerprintd
+-    class late_start
+-    user system
+-    group system    
+-
+-on init
+-    write /sys/class/android_usb/android0/f_rndis/manufacturer bq
+-    write /sys/class/android_usb/android0/f_rndis/vendorID 2A47
+-    write /sys/class/android_usb/android0/iManufacturer bq
+-    write /sys/class/android_usb/android0/iProduct "Aquaris U Plus"
+diff --git a/rootdir/etc/init.bq.tp.sh b/rootdir/etc/init.bq.tp.sh
+deleted file mode 100644
+index 40fde5d..0000000
+--- a/rootdir/etc/init.bq.tp.sh
++++ /dev/null
+@@ -1,89 +0,0 @@
+-#!/system/bin/sh
+-# Version: V1.0
+-# Author: Alex.Zhou
+-# Function: Get component info
+-# modify record:
+-#     function            date       Author      email 
+-#     1. create the file  04/08/2014 Alex.zhou   ronggang.zhou@ck-telecom.com
+-#     2. modified file    03/03/2015 mask.yang   mask.yang@ck-telecom.com
+-
+-#2.modified file
+-# 1) add replace space to "_"
+-
+-#debug switch
+-#debug="on"
+-
+-function do_set_property_from_file()
+-{
+-	local ret_string
+-	local property=$2
+-	
+-	if [ -f $1 ]
+-	then
+-		ret_string=`cat $1`
+-		#remove space on string last
+-		ret_string=${ret_string%%" "}
+-		#replace space to "_"
+-		ret_string=${ret_string//" "/"_"}
+-	else
+-		ret_string="unknown"
+-	fi
+-
+-	if [ $property != "" ]
+-	then
+-		setprop $property  $ret_string
+-	fi
+-	echo ${ret_string}
+-
+-}
+-
+-function set_property_from_file()
+-{
+-	do_set_property_from_file $1 "bq.product.$2"
+-}
+-function set_camera()
+-{
+-	local a=60
+-	local info
+-	while ((a--))
+-	do
+-		if [ -s $1 ]
+-		then
+-			break
+-		fi
+-		sleep 1
+-	done
+-	info=`cat $1`
+-	echo ==$1--$info==
+-	do_set_property_from_file $1 "bq.product.$2"
+-}
+-
+-GetInfo()
+-{
+-
+-	#get emcp info
+-	cmdline=`cat /proc/cmdline`
+-
+-	emcp_name=`echo ${cmdline}|busybox awk '{
+-		for(i=1;i<=NF;i++){
+-			if($i~/androidboot.emmcname/){
+-				sub(/androidboot.emmcname=/,"")
+-				print $i
+-			}
+-		}
+-	}'`
+-	if [ ! -d $emcp_name ]
+-	then
+-		setprop ro.bq.product.emcp $emcp_name
+-	fi
+-}
+-
+-
+-set_property_from_file /sys/android_touch/info "tp"
+-set_property_from_file /sys/class/lcd/lcd_info "lcd"
+-set_property_from_file /sys/class/mdtv/mdtv_info "mdtv"
+-set_property_from_file /sys/bus/platform/drivers/wcnss_wlan/a000000.qcom,wcnss-wlan/wcnss_name "wcnss"
+-set_camera /sys/class/camera/sub_camera_info "sub_camera"
+-set_camera /sys/class/camera/main_camera_info "main_camera"
+-set_camera /sys/class/yuv_camera/slave_camera_info "slave_camera"
+-#SetProperty
+diff --git a/rootdir/etc/init.qcom.rc b/rootdir/etc/init.qcom.rc
+index 889fb27..399044e 100644
+--- a/rootdir/etc/init.qcom.rc
++++ b/rootdir/etc/init.qcom.rc
+@@ -27,8 +27,6 @@
+ 
+ import init.qcom.usb.rc
+ import init.target.rc
+-import init.bq.device.rc
+-import init.bq.common.rc
+ 
+ on early-init
+     mount debugfs debugfs /sys/kernel/debug
+@@ -589,16 +587,6 @@ service ptt_ffbm /system/bin/ptt_socket_app -f -d
+     disabled
+     oneshot
+ 
+-service wifi_ftmd /system/bin/wifi_ftmd
+-    user system
+-    group system inet net_admin
+-    socket wififtmd_server dgram 0660 system system
+-    disabled
+-    oneshot
+-
+-on property:wifi.ftmd.load=true
+-    insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
+-
+ service cnss_diag /system/bin/cnss_diag -q -f
+     class main
+     user system
+@@ -618,10 +606,6 @@ service loc_launcher /system/bin/loc_launcher
+     class late_start
+     group gps inet qcom_diag wifi
+ 
+-on property:crypto.driver.load=1
+-     insmod /system/lib/modules/qce.ko
+-     insmod /system/lib/modules/qcedev.ko
+-
+ service drmdiag /system/bin/drmdiagapp
+     class late_start
+      user root
+@@ -647,7 +631,6 @@ service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
+ 
+ on property:sys.boot_completed=1
+     start qcom-post-boot
+-    start qti-testscripts
+ 
+ service atfwd /system/bin/ATFWD-daemon
+     class late_start
+@@ -661,15 +644,6 @@ service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
+     oneshot
+     disabled
+ 
+-service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
+-    class late_start
+-    group radio wifi inet
+-    disabled
+-    oneshot
+-
+-on property:persist.data.ds_fmc_app.mode=1
+-    start ds_fmc_appd
+-
+ service ims_regmanager /system/bin/exe-ims-regmanagerprocessnative
+     class late_start
+     group net_bt_admin inet radio wifi
+@@ -682,11 +656,6 @@ on property:ro.data.large_tcp_window_size=true
+     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
+     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
+ 
+-service battery_monitor /system/bin/battery_monitor
+-    user system
+-    group system
+-    disabled
+-
+ service ril-daemon2 /system/bin/rild -c 2
+     class main
+     socket rild2 stream 660 root radio
+@@ -712,11 +681,6 @@ service ssr_diag /system/bin/ssr_diag
+     group system
+     disabled
+ 
+-service charger_monitor /system/bin/charger_monitor
+-    user root
+-    group root
+-    disabled
+-
+ service qbcharger /charger -m 1
+     disabled
+     oneshot
+@@ -767,11 +731,6 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
+     user system
+     group system
+ 
+-service esepmdaemon /system/vendor/bin/esepmdaemon
+-    class core
+-    user system
+-    group nfc
+-
+ on charger
+     setprop persist.sys.usb.config charging
+ 
+diff --git a/rootdir/etc/init.qcom.sh b/rootdir/etc/init.qcom.sh
+index 8e13510..f5dfad5 100644
+--- a/rootdir/etc/init.qcom.sh
++++ b/rootdir/etc/init.qcom.sh
+@@ -33,40 +33,6 @@ else
+     platformid=`cat /sys/devices/system/soc/soc0/id`
+ fi
+ 
+-start_battery_monitor()
+-{
+-	if ls /sys/bus/spmi/devices/qpnp-bms-*/fcc_data ; then
+-		chown -h root.system /sys/module/pm8921_bms/parameters/*
+-		chown -h root.system /sys/module/qpnp_bms/parameters/*
+-		chown -h root.system /sys/bus/spmi/devices/qpnp-bms-*/fcc_data
+-		chown -h root.system /sys/bus/spmi/devices/qpnp-bms-*/fcc_temp
+-		chown -h root.system /sys/bus/spmi/devices/qpnp-bms-*/fcc_chgcyl
+-		chmod 0660 /sys/module/qpnp_bms/parameters/*
+-		chmod 0660 /sys/module/pm8921_bms/parameters/*
+-		mkdir -p /data/bms
+-		chown -h root.system /data/bms
+-		chmod 0770 /data/bms
+-		start battery_monitor
+-	fi
+-}
+-
+-start_charger_monitor()
+-{
+-	if ls /sys/module/qpnp_charger/parameters/charger_monitor; then
+-		chown -h root.system /sys/module/qpnp_charger/parameters/*
+-		chown -h root.system /sys/class/power_supply/battery/input_current_max
+-		chown -h root.system /sys/class/power_supply/battery/input_current_trim
+-		chown -h root.system /sys/class/power_supply/battery/input_current_settled
+-		chown -h root.system /sys/class/power_supply/battery/voltage_min
+-		chmod 0664 /sys/class/power_supply/battery/input_current_max
+-		chmod 0664 /sys/class/power_supply/battery/input_current_trim
+-		chmod 0664 /sys/class/power_supply/battery/input_current_settled
+-		chmod 0664 /sys/class/power_supply/battery/voltage_min
+-		chmod 0664 /sys/module/qpnp_charger/parameters/charger_monitor
+-		start charger_monitor
+-	fi
+-}
+-
+ start_msm_irqbalance_8939()
+ {
+ 	if [ -f /system/bin/msm_irqbalance ]; then
+diff --git a/rootdir/etc/init.target.rc b/rootdir/etc/init.target.rc
+index 48a21f2..a99542f 100644
+--- a/rootdir/etc/init.target.rc
++++ b/rootdir/etc/init.target.rc
+@@ -72,6 +72,10 @@ on post-fs-data
+     mkdir /data/misc/hbtp 0750 system system
+     mkdir /data/misc/dts 0770 media audio
+ 
++    # Create directory for TZ Apps
++    mkdir /data/fpc_images 0770 system system
++    chmod 0770 /data/fpc_images
++
+ #start camera server as daemon
+ service qcamerasvr /system/bin/mm-qcamera-daemon
+     class late_start
+@@ -80,6 +84,10 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
+ 
+ on init
+    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
++   write /sys/class/android_usb/android0/f_rndis/manufacturer bq
++   write /sys/class/android_usb/android0/f_rndis/vendorID 2A47
++   write /sys/class/android_usb/android0/iManufacturer bq
++   write /sys/class/android_usb/android0/iProduct "Aquaris U Plus"
+ 
+ # Allow usb charging to be disabled peristently
+ on property:persist.usb.chgdisabled=1
+@@ -113,7 +121,6 @@ service audiod /system/bin/audiod
+ 
+ on boot
+     start rmt_storage
+-    insmod /system/lib/modules/adsprpc.ko
+     # access permission for secure touch
+     chmod 0660 /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch_enable
+     chmod 0440 /sys/devices/soc.0/78b7000.i2c/i2c-3/3-0020/input/input0/secure_touch
+@@ -124,6 +131,34 @@ on boot
+     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
+     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
+ 
++    chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-005f/irq
++    chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-005f/clk_enable
++    chown system system /sys/devices/soc/78b7000.i2c/i2c-3/3-005f/wakeup_enable
++
++    # Double Tap to Wake
++    chown root system /sys/android_touch/wakeup_gesture_enable
++    chmod 0660 /sys/android_touch/wakeup_gesture_enable
++
++    # Vibrator intensity modifier
++    chown system system /sys/class/timed_output/vibrator/enable
++    chown system system /sys/class/timed_output/vibrator/wf_s0
++    chown system system /sys/class/timed_output/vibrator/wf_s1
++    chown system system /sys/class/timed_output/vibrator/wf_s2
++    chown system system /sys/class/timed_output/vibrator/wf_s3
++    chown system system /sys/class/timed_output/vibrator/wf_s4
++    chown system system /sys/class/timed_output/vibrator/wf_s5
++    chown system system /sys/class/timed_output/vibrator/wf_s6
++    chown system system /sys/class/timed_output/vibrator/wf_s7
++    chown system system /sys/class/timed_output/vibrator/wf_update_now
++
++    # Leds
++    chown system system /sys/class/leds/red/blink
++    chown system system /sys/class/leds/blue/blink
++    chown system system /sys/class/leds/green/blink
++    chown system system /sys/class/leds/red/led_time
++    chown system system /sys/class/leds/blue/led_time
++    chown system system /sys/class/leds/green/led_time
++
+ service ppd /system/vendor/bin/mm-pp-dpps
+     class late_start
+     disabled
+@@ -240,6 +275,11 @@ service mdtpd /system/vendor/bin/mdtpd
+     user root
+     group system radio drmrpc
+ 
++service fingerprintd /system/bin/fingerprintd
++    class late_start
++    user system
++    group system
++
+ on boot
+     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/fw_name PR1702898-s3528t_00260005_00380008.img
+     write /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/update_fw 1
+-- 
+2.7.4
+
