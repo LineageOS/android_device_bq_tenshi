@@ -44,7 +44,6 @@ failed ()
   loge "$1: exit code $2"
   exit $2
 }
-
 # BR/EDR & LE power class configurations
 POWER_CLASS=`getprop qcom.bt.dev_power_class`
 LE_POWER_CLASS=`getprop qcom.bt.le_dev_pwr_class`
