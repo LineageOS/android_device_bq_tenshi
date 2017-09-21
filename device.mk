@@ -219,6 +219,10 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
+# Snap
+PRODUCT_PACKAGES += \
+    Snap
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8937
