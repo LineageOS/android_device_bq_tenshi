@@ -53,6 +53,13 @@ bin/btnvtool
 bin/hci_qcomm_init
 vendor/lib/libbtnv.so
 
+# BQ
+etc/permissions/bq.software.bqservices.system.xml
+etc/permissions/bq.software.qcom.m.tenshi.xml
+etc/permissions/bq.software.qcom.m.xml
+etc/permissions/bq.software.qcom.n.tenshi.xml
+etc/permissions/bq.software.qcom.n.xml
+
 # CNE
 bin/cnd
 etc/cne/SwimConfig.xml
