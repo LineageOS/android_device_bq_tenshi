@@ -229,6 +229,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/s5k3p3sm_chromatix.xml:system/etc/camera/s5k3p3sm_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/s5k3p3_chromatix.xml:system/etc/camera/s5k3p3_chromatix.xml
 
+# Snap
+PRODUCT_PACKAGES += \
+    Snap
+
 # Thermal Configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8937.conf:system/etc/thermal-engine-8937.conf
