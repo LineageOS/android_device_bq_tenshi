@@ -219,10 +219,6 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2
 
-# Snap
-PRODUCT_PACKAGES += \
-    Snap
-
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8937
@@ -238,6 +234,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera/s5k3p3sm_chromatix.xml:system/etc/camera/s5k3p3sm_chromatix.xml \
     $(LOCAL_PATH)/configs/camera/s5k3p3_chromatix.xml:system/etc/camera/s5k3p3_chromatix.xml
 
+<<<<<<< HEAD
+=======
+# Snap
+PRODUCT_PACKAGES += \
+    Snap
+
+# Thermal Configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine-8937.conf:system/etc/thermal-engine-8937.conf
+
+>>>>>>> ffea9d4... Revert "tenshi: no more Snap."
 # Vulkan
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level-0.xml \
