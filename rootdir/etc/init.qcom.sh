@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# Copyright (c) 2009-2016, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2017, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -64,6 +64,16 @@ start_msm_irqbalance()
 	fi
 }
 
+start_copying_prebuilt_qcril_db()
+{
+    if [ -f /system/vendor/qcril.db -a ! -f /data/misc/radio/qcril.db ]; then
+        cp /system/vendor/qcril.db /data/misc/radio/qcril.db
+        chown -h radio.radio /data/misc/radio/qcril.db
+    fi
+}
+
+echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
+
 case "$target" in
     "msm8937")
         start_msm_irqbalance_8939
@@ -73,7 +83,12 @@ case "$target" in
         start_msm_irqbalance_8939
 esac
 
+#
+# Copy qcril.db if needed for RIL
+#
+start_copying_prebuilt_qcril_db
 start_sensors
+echo 1 > /data/misc/radio/db_check_done
 
 #
 # Make modem config folder and copy firmware config to that folder for RIL
