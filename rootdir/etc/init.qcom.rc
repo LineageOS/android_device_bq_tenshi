@@ -52,8 +52,6 @@ on post-fs
 
 # msm specific files that need to be created on /data
 on post-fs-data
-    symlink /sdcard /storage/sdcard0
-
     #Create directories for Fingerprint
     mkdir /data/misc/stargate 0770 system system
     mkdir /data/misc/stargate/bg_estimation 0770 system system
