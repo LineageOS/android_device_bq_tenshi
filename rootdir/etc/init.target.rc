@@ -165,7 +165,8 @@ service wcnss-service /system/bin/wcnss_service
 on charger
     wait /dev/block/bootdevice/by-name/system
     mount ext4 /dev/block/bootdevice/by-name/system /system ro barrier=1
-    load_all_props
+    load_system_props
+    setprop sys.usb.configfs 0
     setprop persist.sys.usb.config mass_storage
     start qcom-post-boot
     setprop persist.sys.usb.config mass_storage
