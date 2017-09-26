@@ -101,8 +101,6 @@ on post-fs-data
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
 
     #create netmgr log dir
     mkdir /data/misc/netmgr 0770 radio radio
@@ -420,9 +418,6 @@ on property:radio.atfwd.start=false
 on property:persist.debug.trace=1
     mkdir /data/core 0777 root root
     write /proc/sys/kernel/core_pattern "/data/core/%E.%p.%e"
-
-on property:init.svc.wpa_supplicant=stopped
-    stop dhcpcd
 
 on property:bluetooth.isEnabled=true
     write /sys/class/bluetooth/hci0/idle_timeout 7000
