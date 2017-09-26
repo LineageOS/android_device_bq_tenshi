@@ -48,6 +48,29 @@ fi
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
+target=`getprop ro.board.platform`
+case "$target" in
+    "msm8937" | "msm8940")
+        # Set ro.opengles.version based on chip id.
+        # MSM8937 and MSM8940  variants supports OpenGLES 3.1
+        # 196608 is decimal for 0x30000 to report version 3.0
+        # 196609 is decimal for 0x30001 to report version 3.1
+        case "$soc_hwid" in
+            294|295|296|297|298|313)
+                setprop ro.opengles.version 196609
+                ;;
+            303|307|308|309)
+                # Vulkan is not supported for 8917 variants
+                setprop ro.opengles.version 196608
+                setprop persist.graphics.vulkan.disable true
+                ;;
+            *)
+                setprop ro.opengles.version 196608
+                ;;
+        esac
+        ;;
+esac
+
 # Setup display nodes & permissions
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine
