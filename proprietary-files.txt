@@ -166,7 +166,6 @@ vendor/lib/libubifocus.so
 # Camera actuators
 vendor/lib/libactuator_bu64297.so
 
-
 # Camera chromatix
 vendor/lib/libchromatix_ov5675_d5v15b_default_video_3a.so
 vendor/lib/libchromatix_ov5675_d5v15b_hfr_60_3a.so
@@ -516,7 +515,6 @@ bin/ipacm-diag
 bin/netmgrd
 bin/radish
 bin/rmt_storage
-bin/port-bridge
 bin/tftp_server
 etc/permissions/embms.xml
 #etc/permissions/qcnvitems.xml
