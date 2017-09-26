@@ -114,6 +114,17 @@ then
     done
 fi
 
+file=/sys/class/graphics/fb0
+if [ -d "$file" ]
+then
+        set_perms $file/idle_time system.graphics 0664
+        set_perms $file/dynamic_fps system.graphics 0664
+        set_perms $file/dyn_pu system.graphics 0664
+        set_perms $file/modes system.graphics 0664
+        set_perms $file/mode system.graphics 0664
+        set_perms $file/msm_cmd_autorefresh_en system.graphics 0664
+fi
+
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
 if [ "$boot_reason" = "3" ] || [ "$reboot_reason" = "true" ]; then
