@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6926ce89_8da23cde",
+        "filename": "rootdir/etc/init.qcom.bt.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6521
+      },
+      "writtenOn": "2017-10-03T02:37:16Z",
+      "side": 1,
+      "message": "We don\u0027t use blue-z. Please be far more careful about introducing large codebases that are unneeded.",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 6
+      },
+      "revId": "eb24ac382cef1bdf2592acc95a2b64668403108b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
