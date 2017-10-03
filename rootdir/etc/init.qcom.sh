@@ -27,6 +27,11 @@
 #
 chown -h system:system /sys/devices/soc/qpnp-smbcharger-*/battery_max_current
 target=`getprop ro.board.platform`
+if [ -f /sys/devices/soc0/soc_id ]; then
+    platformid=`cat /sys/devices/soc0/soc_id`
+else
+    platformid=`cat /sys/devices/system/soc/soc0/id`
+fi
 
 start_sensors()
 {
@@ -42,8 +47,33 @@ start_sensors()
     fi
 }
 
+start_msm_irqbalance_8939()
+{
+	if [ -f /system/bin/msm_irqbalance ]; then
+		case "$platformid" in
+		    "239" | "293" | "294" | "295" | "304" | "313")
+			start msm_irqbalance;;
+		esac
+	fi
+}
+
+start_msm_irqbalance()
+{
+	if [ -f /system/bin/msm_irqbalance ]; then
+		start msm_irqbalance
+	fi
+}
+
+case "$target" in
+    "msm8937")
+        start_msm_irqbalance_8939
+       esac
+        ;;
+    "msm8953")
+        start_msm_irqbalance_8939
+esac
+
 start_sensors
-start msm_irqbalance
 
 #
 # Make modem config folder and copy firmware config to that folder for RIL
