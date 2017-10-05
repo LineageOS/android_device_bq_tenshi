@@ -219,6 +219,12 @@ service fingerprintd /system/bin/fingerprintd
     user system
     group system
 
+service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+    class core
+    user root
+    group root
+    disabled
+
 # FM enable/disable triggers
 on property:hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
