@@ -77,10 +77,10 @@ echo 1 > /proc/sys/net/ipv6/conf/default/accept_ra_defrtr
 case "$target" in
     "msm8937")
         start_msm_irqbalance_8939
-       esac
         ;;
     "msm8953")
         start_msm_irqbalance_8939
+        ;;
 esac
 
 #
