@@ -34,7 +34,7 @@ fi
 . "$HELPER"
 
 # default to not sanitizing the vendor folder before extraction
-clean_vendor=false
+clean_vendor=true
 
 while [ "$1" != "" ]; do
     case $1 in
