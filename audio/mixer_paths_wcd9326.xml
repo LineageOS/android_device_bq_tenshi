@@ -562,7 +562,7 @@
         <ctl name="RX MIX TX1 MUX" value="RX_MIX_VBAT7" />
         <ctl name="SLIM_1_TX Channels" value="One" />
         <ctl name="VOC_EXT_EC MUX" value="SLIM_1_TX" />
-   </path>
+    </path>
 
    <path name="echo-reference vbat-speaker">
         <ctl name="AIF3_CAP Mixer SLIM TX1" value="1" />
@@ -619,6 +619,10 @@
         <path name="deep-buffer-playback" />
     </path>
 
+    <path name="deep-buffer-playback headphones">
+        <ctl name="SLIMBUS_6_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
     <path name="deep-buffer-playback transmission-fm">
         <ctl name="INTERNAL_FM_RX Audio Mixer MultiMedia1" value="1" />
     </path>
@@ -626,10 +630,6 @@
     <path name="deep-buffer-playback speaker-and-headphones">
         <path name="deep-buffer-playback headphones" />
         <path name="deep-buffer-playback" />
-    </path>
-
-    <path name="deep-buffer-playback headphones">
-        <ctl name="SLIMBUS_6_RX Audio Mixer MultiMedia1" value="1" />
     </path>
 
     <path name="low-latency-playback">
@@ -1481,6 +1481,7 @@
         <ctl name="SLIMBUS6_DL_HL Switch" value="1" />
     </path>
 
+
    <path name="hfp-sco-wb">
         <ctl name="Internal BTSCO SampleRate" value="BTSCO_RATE_16KHZ" />
         <path name="hfp-sco" />
@@ -1490,6 +1491,7 @@
         <ctl name="Internal BTSCO SampleRate" value="BTSCO_RATE_16KHZ" />
         <path name="hfp-sco headphones" />
     </path>
+
 
     <path name="volte-call">
         <ctl name="SLIM_0_RX_Voice Mixer VoLTE" value="1" />
@@ -1540,6 +1542,7 @@
         <ctl name="SLIM_6_RX_Voice Mixer Voip" value="1" />
         <ctl name="Voip_Tx Mixer SLIM_0_TX_Voip" value="1" />
     </path>
+
 
     <path name="compress-voip-call bt-sco">
         <ctl name="INTERNAL_BT_SCO_RX_Voice Mixer Voip" value="1" />
