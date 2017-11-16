@@ -52,6 +52,10 @@ on init
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
     write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
+    write /sys/class/android_usb/android0/f_rndis/manufacturer bq
+    write /sys/class/android_usb/android0/f_rndis/vendorID 2A47
+    write /sys/class/android_usb/android0/iManufacturer bq
+    write /sys/class/android_usb/android0/iProduct "Aquaris U Plus"
 
 on fs
     wait /dev/block/bootdevice
@@ -229,7 +233,7 @@ on post-fs-data
     mkdir /data/system/swap 0770 root system
     chmod 2770 /data/system/swap
 
-    # Tap to Wake
+    # Double Tap to Wake
     chown root system /sys/android_touch/wakeup_gesture_enable
     chmod 0660 /sys/android_touch/wakeup_gesture_enable
 
@@ -359,7 +363,7 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    #Vibrator intensity modifier
+    # Vibrator intensity modifier
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/timed_output/vibrator/wf_s0
     chown system system /sys/class/timed_output/vibrator/wf_s1
@@ -383,12 +387,12 @@ on boot
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch_enable
     chown system drmrpc /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0020/input/input0/secure_touch
 
-    # Notification LED
-    chown system system /sys/class/leds/blue/led_time
-    chown system system /sys/class/leds/blue/blink
+    # Leds
     chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/blue/blink
     chown system system /sys/class/leds/green/blink
     chown system system /sys/class/leds/red/led_time
+    chown system system /sys/class/leds/blue/led_time
     chown system system /sys/class/leds/green/led_time
 
 service iop /system/bin/iop
@@ -652,9 +656,8 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
 
 service fingerprintd /system/bin/fingerprintd
     class late_start
-    socket fpce stream 0666 system system
-    user  system
-    group system sdcard_rw
+    user system
+    group system
 
 # Start camera server as daemon
 service qcamerasvr /system/bin/mm-qcamera-daemon
