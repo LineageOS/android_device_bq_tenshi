@@ -21,6 +21,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from tenshi device
 $(call inherit-product, device/bq/tenshi/device.mk)
 
+# Inherit from common device
+$(call inherit-product, device/bq/msm8937-common/msm8937.mk)
+
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
@@ -37,7 +40,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
    PRODUCT_NAME=tenshi
 
 # Overlays (inherit after vendor/cm to ensure we override it)
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_PATH)/overlay
 
 PRODUCT_GMS_CLIENTID_BASE := android-bq
 
