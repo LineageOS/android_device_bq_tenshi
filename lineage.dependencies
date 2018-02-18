@@ -2,5 +2,5 @@
  {
    "repository":"android_device_bq_msm8937-common",
    "target_path":"device/bq/msm8937-common"
- },
+ }
 ]
