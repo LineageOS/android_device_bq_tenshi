@@ -42,5 +42,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_GMS_CLIENTID_BASE := android-bq
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=bq/tenshi/tenshi:7.1.1/NMF26F/1523869853:user/release-keys \
-    PRIVATE_BUILD_DESC="tenshi-user 7.1.1 NMF26F 2.7.0_20180416-1107 release-keys"
+    BUILD_FINGERPRINT=bq/tenshi/tenshi:7.1.1/NMF26F/1091:user/release-keys \
+    PRIVATE_BUILD_DESC="tenshi-user 7.1.1 NMF26F 1091 release-keys"
