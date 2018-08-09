@@ -433,6 +433,7 @@ etc/firmware/DE.o.msm8937
 lib/libOmxSwVdec.so
 lib/libOmxSwVencMpeg4.so
 lib/libOmxVpp.so
+lib/libstagefright_soft_flacdec.so
 lib/libvpplibrary.so
 vendor/lib/libAlacSwDec.so
 vendor/lib/libApeSwDec.so
